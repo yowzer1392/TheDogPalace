@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dog Palace – Grooming &amp; Spa Tijuana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#6B7FB8;--blue-dark:#3D4F87;--blue-light:#8B9CC8;--blue-pale:#E8EBF5;
+  --gold:#C9A84C;--gold-light:#F0DFA0;--gold-dark:#8B6914;
+  --dark:#1A1A2E;--dark2:#252540;--cream:#F8F7FC;--cream2:#EEECF7;
+  --text:#1A1A2E;--text2:#555570;--white:#fff;
+  --wa:#25D366;--wa-dark:#128C7E;
+  --red:#cc3355;--green:#22aa66;
+  --radius:12px;--radius-sm:8px;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+/* ─── NAV ─────────────────────────────────── */
+nav{background:var(--dark);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(107,127,184,0.2)}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.nav-logo img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid var(--blue-light)}
+.nav-logo-text{font-family:'Playfair Display',serif;color:var(--white);font-size:1.1rem;font-weight:600;line-height:1.1}
+.nav-logo-text span{font-size:0.65rem;display:block;color:var(--blue-light);font-family:'Inter',sans-serif;font-weight:300;letter-spacing:0.18em;text-transform:uppercase}
+.nav-links{display:flex;gap:1.4rem;align-items:center}
+.nav-links a{color:#aab;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.lang-toggle{background:transparent;border:1px solid #445;color:#aab;padding:4px 12px;border-radius:20px;cursor:pointer;font-size:0.78rem;transition:all .2s}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.btn-book-nav{background:var(--gold);color:var(--dark);border:none;padding:8px 18px;border-radius:20px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-book-nav:hover{background:var(--gold-light)}
+.btn-admin-nav{background:transparent;border:1px solid #445;color:#aab;padding:8px 14px;border-radius:20px;font-size:0.78rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px}
+.btn-admin-nav:hover{border-color:var(--blue-light);color:var(--blue-light)}
+
+/* ─── HERO ────────────────────────────────── */
+.hero{background:var(--dark);min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,#2a2a50 0%,var(--dark) 75%)}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-logo-wrap{margin-bottom:2rem;display:inline-block;position:relative}
+.hero-logo-wrap img{width:155px;height:155px;border-radius:50%;object-fit:cover;border:3px solid rgba(107,127,184,0.4);box-shadow:0 0 60px rgba(107,127,184,0.2)}
+.hero-logo-ring{position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(201,168,76,0.3)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:var(--white);font-weight:600;line-height:1.15;margin-bottom:0.5rem}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:#99a;font-size:1rem;margin-bottom:0.4rem;font-weight:300}
+.hero-addr{color:var(--blue-light);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem}
+.hero-btns{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+
+/* ─── BUTTONS ─────────────────────────────── */
+.btn{border:none;border-radius:40px;font-size:0.88rem;font-weight:600;cursor:pointer;transition:all .2s;padding:12px 26px;display:inline-flex;align-items:center;gap:7px}
+.btn-gold{background:var(--gold);color:var(--dark)}.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.btn-wa{background:var(--wa);color:#fff}.btn-wa:hover{background:var(--wa-dark);transform:translateY(-1px)}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{filter:brightness(1.1)}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{filter:brightness(1.1)}
+.btn-ghost{background:transparent;border:1px solid #445;color:#aab;border-radius:8px;padding:7px 14px;font-size:0.78rem;cursor:pointer;transition:all .2s}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue-light)}
+.btn svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
+.full-w{width:100%}
+
+/* ─── HOURS BANNER ────────────────────────── */
+.hours-banner{background:var(--blue);padding:11px 2rem;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.hours-banner span{font-size:0.78rem;font-weight:500;color:#fff;letter-spacing:0.04em}
+.hours-banner .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.4)}
+.open-badge{background:var(--dark);color:var(--gold);padding:3px 11px;border-radius:20px;font-size:0.72rem;font-weight:700}
+
+/* ─── SECTIONS ────────────────────────────── */
+.section-wrap{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.section-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:0.4rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.5rem);color:var(--dark);line-height:1.2;margin-bottom:1rem}
+.section-title.light{color:var(--white)}
+
+/* ─── SERVICES ────────────────────────────── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.25rem;margin-top:2.5rem}
+.service-card{background:var(--white);border:1px solid #dddaf0;border-radius:var(--radius);padding:1.75rem 1.4rem;text-align:center;transition:all .25s}
+.service-card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 8px 30px rgba(107,127,184,0.12)}
+.service-icon{font-size:1.9rem;margin-bottom:0.75rem}
+.service-card h3{font-size:0.9rem;font-weight:600;color:var(--dark);margin-bottom:0.35rem}
+.service-card p{font-size:0.78rem;color:var(--text2);line-height:1.5}
+.service-price{display:inline-block;margin-top:0.7rem;background:var(--blue-pale);color:var(--blue-dark);font-size:0.76rem;font-weight:600;padding:3px 11px;border-radius:20px}
+.price-note{margin-top:1.75rem;background:var(--white);border:1px solid #dddaf0;border-radius:var(--radius);padding:1rem 1.4rem;display:flex;align-items:flex-start;gap:10px;font-size:0.82rem;color:var(--text2)}
+.price-note .note-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.price-note strong{color:var(--blue-dark)}
+
+/* ─── SOCIAL ──────────────────────────────── */
+.social-section{background:var(--dark);padding:5rem 2rem}
+.social-inner{max-width:1100px;margin:0 auto}
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
+.tiktok-embed-wrap{display:flex;justify-content:center}
+.tiktok-embed-wrap blockquote{border-radius:16px;overflow:hidden;max-width:340px;width:100%;border:none!important}
+.social-info h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:1rem;line-height:1.2}
+.social-info p{font-size:0.9rem;color:#99a;line-height:1.7;margin-bottom:2rem}
+.social-buttons{display:flex;flex-direction:column;gap:0.75rem}
+.social-follow-btn{display:flex;align-items:center;gap:12px;padding:13px 20px;border-radius:12px;font-size:0.88rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;text-decoration:none;width:fit-content}
+.social-follow-btn:hover{transform:translateY(-2px)}
+.social-follow-btn.tt{background:#fff;color:#000}
+.social-follow-btn.fb{background:#1877F2;color:#fff}
+.social-follow-btn.wa-s{background:var(--wa);color:#fff}
+.social-follow-btn svg{width:20px;height:20px;fill:currentColor}
+.follow-label{font-size:0.72rem;display:block;opacity:0.7;font-weight:400;margin-top:1px}
+.social-stats{display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #334}
+.stat h4{font-size:1.3rem;font-weight:700;color:var(--gold)}
+.stat p{font-size:0.75rem;color:#778;text-transform:uppercase;letter-spacing:0.08em}
+
+/* ─── BOOKING SECTION ─────────────────────── */
+.booking-section{background:var(--dark2);border-radius:20px;padding:2.5rem;margin:2rem 0}
+.booking-tabs{display:flex;margin-bottom:2rem;border:1px solid #334;border-radius:var(--radius-sm);overflow:hidden;width:fit-content}
+.booking-tab{background:transparent;color:#778;border:none;padding:10px 22px;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px;font-family:'Inter',sans-serif}
+.booking-tab.active{background:var(--blue);color:#fff;font-weight:600}
+.booking-tab svg{width:15px;height:15px;fill:currentColor}
+.booking-panel{display:none}.booking-panel.active{display:block}
+.booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.form-group{margin-bottom:1.1rem}
+.form-group label{display:block;font-size:0.75rem;font-weight:500;color:#aab;margin-bottom:5px;letter-spacing:0.06em;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:#1a1a2e;border:1px solid #334;color:#fff;padding:10px 13px;border-radius:var(--radius-sm);font-family:'Inter',sans-serif;font-size:0.85rem;transition:border .2s;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--blue)}
+.form-group select option{background:#1a1a2e}
+.time-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px}
+.time-slot{background:#1a1a2e;border:1px solid #334;color:#778;padding:7px;border-radius:var(--radius-sm);text-align:center;font-size:0.75rem;cursor:pointer;transition:all .2s}
+.time-slot:hover:not(.booked){border-color:var(--blue);color:var(--blue-light)}
+.time-slot.selected{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
+.time-slot.booked{background:#1a1020;border-color:#3a2040;color:#664466;cursor:not-allowed;text-decoration:line-through}
+.slot-legend{display:flex;gap:1rem;margin-top:8px;flex-wrap:wrap}
+.slot-legend span{font-size:0.7rem;color:#778;display:flex;align-items:center;gap:4px}
+.legend-dot{width:7px;height:7px;border-radius:50%}
+.appt-item{background:#1a1a2e;border:1px solid #334;border-radius:var(--radius-sm);padding:11px 14px;margin-bottom:7px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.appt-info h4{font-size:0.82rem;color:#dde;font-weight:500}
+.appt-info p{font-size:0.72rem;color:#778;margin-top:2px}
+.cancel-btn{background:transparent;border:1px solid #4a1a3a;color:#884466;padding:4px 11px;border-radius:20px;font-size:0.7rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+.cancel-btn:hover{background:#4a1a3a;color:#ffaacc}
+.no-appts{color:#445;font-size:0.82rem;text-align:center;padding:1.5rem}
+
+/* WhatsApp booking panel */
+.wa-booking{background:#111218;border-radius:var(--radius);padding:1.75rem;border:1px solid #2a2a40}
+.wa-header{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid #2a2a40}
+.wa-avatar{width:46px;height:46px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-avatar svg{width:26px;height:26px;fill:#fff}
+.wa-header-info h3{color:#fff;font-size:0.95rem;font-weight:600}
+.wa-header-info p{color:#778;font-size:0.76rem}
+.wa-online{width:9px;height:9px;background:var(--wa);border-radius:50%;display:inline-block;margin-right:4px}
+.wa-form .form-group{margin-bottom:0.9rem}
+.wa-form label{display:block;font-size:0.73rem;font-weight:500;color:#778;margin-bottom:4px;letter-spacing:0.06em;text-transform:uppercase}
+.wa-form input,.wa-form select{width:100%;background:#1a1a2e;border:1px solid #334;color:#fff;padding:9px 13px;border-radius:var(--radius-sm);font-family:'Inter',sans-serif;font-size:0.85rem;transition:border .2s}
+.wa-form input:focus,.wa-form select:focus{outline:none;border-color:var(--wa)}
+.wa-form select option{background:#1a1a2e}
+.wa-preview{background:#0a0f1a;border:1px solid #1e3a2a;border-radius:var(--radius-sm);padding:1rem;margin:1.25rem 0;font-size:0.78rem}
+.wa-preview strong{color:var(--wa);font-size:0.7rem;display:block;margin-bottom:5px;letter-spacing:0.1em;text-transform:uppercase}
+.wa-preview p{color:#ccd;white-space:pre-line;line-height:1.7}
+
+/* ─── ADMIN PANEL ─────────────────────────── */
+.admin-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,20,0.85);z-index:500;align-items:flex-start;justify-content:center;padding:2rem;overflow-y:auto;backdrop-filter:blur(4px)}
+.admin-overlay.open{display:flex}
+.admin-modal{background:var(--dark2);border-radius:20px;border:1px solid var(--blue);width:100%;max-width:820px;overflow:hidden}
+.admin-header{background:var(--dark);padding:1.25rem 1.75rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #334}
+.admin-header h2{font-family:'Playfair Display',serif;color:var(--white);font-size:1.2rem}
+.admin-header-sub{font-size:0.75rem;color:#778;margin-top:2px}
+.admin-close{background:transparent;border:1px solid #445;color:#aab;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.admin-close:hover{border-color:var(--red);color:var(--red)}
+.admin-tabs{display:flex;border-bottom:1px solid #334}
+.admin-tab{background:transparent;border:none;color:#778;padding:0.85rem 1.5rem;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;border-bottom:2px solid transparent}
+.admin-tab.active{color:var(--blue-light);border-bottom-color:var(--blue)}
+.admin-body{padding:1.75rem}
+.admin-panel{display:none}.admin-panel.active{display:block}
+
+/* Admin - Appointment list */
+.admin-appt-item{background:#1a1a2e;border:1px solid #334;border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:8px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.admin-appt-item:hover{border-color:#445}
+.admin-appt-main{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.admin-appt-badge{background:var(--blue-dark);color:#fff;font-size:0.68rem;padding:3px 9px;border-radius:20px;font-weight:600;white-space:nowrap}
+.admin-appt-badge.today{background:var(--green)}
+.admin-appt-badge.upcoming{background:var(--blue-dark)}
+.admin-appt-badge.past{background:#334}
+.admin-appt-info h4{font-size:0.85rem;color:#eef;font-weight:600}
+.admin-appt-info p{font-size:0.75rem;color:#778;margin-top:2px}
+.admin-appt-actions{display:flex;gap:6px}
+.edit-btn{background:transparent;border:1px solid #334;color:#aab;padding:5px 12px;border-radius:20px;font-size:0.7rem;cursor:pointer;transition:all .2s}
+.edit-btn:hover{border-color:var(--blue);color:var(--blue-light)}
+.admin-form{background:#1a1a2e;border-radius:var(--radius);padding:1.5rem;border:1px solid #334;margin-bottom:1.5rem}
+.admin-form h3{font-size:0.85rem;color:var(--blue-light);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.25rem}
+.admin-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.admin-form .form-group{margin-bottom:0}
+.admin-form label{color:#778}
+.admin-form-actions{display:flex;gap:8px;margin-top:1.25rem;justify-content:flex-end}
+.admin-filter{display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap;align-items:center}
+.admin-filter input{background:#1a1a2e;border:1px solid #334;color:#fff;padding:8px 12px;border-radius:var(--radius-sm);font-family:'Inter',sans-serif;font-size:0.82rem;width:200px}
+.admin-filter input:focus{outline:none;border-color:var(--blue)}
+.admin-filter select{background:#1a1a2e;border:1px solid #334;color:#fff;padding:8px 12px;border-radius:var(--radius-sm);font-family:'Inter',sans-serif;font-size:0.82rem}
+.admin-filter select option{background:#1a1a2e}
+.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.admin-stat-card{background:#1a1a2e;border:1px solid #334;border-radius:var(--radius-sm);padding:1rem;text-align:center}
+.admin-stat-card h3{font-size:1.6rem;font-weight:700;color:var(--gold)}
+.admin-stat-card p{font-size:0.72rem;color:#778;text-transform:uppercase;letter-spacing:0.08em;margin-top:3px}
+.admin-login{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem;gap:1rem;text-align:center}
+.admin-login h3{color:#fff;font-family:'Playfair Display',serif;font-size:1.3rem}
+.admin-login p{color:#778;font-size:0.85rem;margin-bottom:0.5rem}
+.admin-login input{background:#1a1a2e;border:1px solid #334;color:#fff;padding:11px 16px;border-radius:var(--radius-sm);font-family:'Inter',sans-serif;font-size:0.9rem;width:260px;text-align:center;letter-spacing:0.2em}
+.admin-login input:focus{outline:none;border-color:var(--blue)}
+.admin-empty{color:#445;font-size:0.85rem;text-align:center;padding:3rem}
+
+/* ─── CONTACT ─────────────────────────────── */
+.contact-section{background:var(--cream2);border-radius:20px;padding:2.5rem;margin:2rem 0;border:1px solid #dddaf0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2rem}
+.contact-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:1.25rem}
+.contact-icon{width:38px;height:38px;background:var(--blue);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.contact-item h4{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue-dark);font-weight:600;margin-bottom:2px}
+.contact-item p{font-size:0.85rem;color:var(--text2);line-height:1.5}
+.hours-table{width:100%;font-size:0.83rem}
+.hours-table tr td{padding:4px 0;color:var(--text2)}
+.hours-table tr td:first-child{font-weight:500;color:var(--dark);width:95px}
+.hours-table tr.today td{color:var(--blue-dark);font-weight:600}
+.map-box{background:var(--dark);border-radius:var(--radius);height:195px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;cursor:pointer;border:1px solid #334;transition:all .2s}
+.map-box:hover{border-color:var(--blue-light)}
+.map-box p{color:#778;font-size:0.78rem}
+.social-row{display:flex;gap:8px;margin-top:1.25rem;flex-wrap:wrap}
+.social-link{display:flex;align-items:center;gap:7px;padding:9px 16px;border-radius:30px;font-size:0.8rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.social-link:hover{transform:translateY(-1px)}
+.social-link.fb{background:#1877F2;color:#fff}
+.social-link.tt{background:#000;color:#fff}
+.social-link.wa-c{background:var(--wa);color:#fff}
+.social-link svg{width:15px;height:15px;fill:currentColor}
+
+/* Floating WA */
+.wa-float{position:fixed;bottom:1.75rem;right:1.75rem;background:var(--wa);color:#fff;border:none;border-radius:50px;padding:13px 20px;font-size:0.85rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 4px 20px rgba(37,211,102,0.35);z-index:200;transition:all .2s}
+.wa-float:hover{background:var(--wa-dark);transform:translateY(-2px)}
+.wa-float svg{width:19px;height:19px;fill:#fff}
+
+/* Footer */
+footer{background:var(--dark);color:#556;text-align:center;padding:2rem;font-size:0.76rem}
+footer a{color:var(--blue-light);text-decoration:none}
+.footer-socials{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:0.75rem;flex-wrap:wrap}
+.footer-social-link{color:var(--blue-light);text-decoration:none;font-size:0.76rem;display:flex;align-items:center;gap:5px}
+.footer-social-link svg{width:13px;height:13px;fill:currentColor}
+
+/* Toast */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--dark2);color:#fff;padding:13px 20px;border-radius:var(--radius-sm);border-left:4px solid var(--blue);font-size:0.83rem;z-index:999;transition:transform .35s;max-width:340px;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.error{border-left-color:var(--red)}
+.toast.wa-t{border-left-color:var(--wa)}
+.toast.ok{border-left-color:var(--green)}
+
+@media(max-width:700px){
+  .booking-grid,.social-grid,.contact-grid,.admin-form-grid,.admin-stats{grid-template-columns:1fr}
+  .nav-links a,.lang-toggle,.btn-admin-nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<button class="wa-float" onclick="openWAFloat()">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span data-es="Reservar por WhatsApp" data-en="Book via WhatsApp">Reservar por WhatsApp</span>
+</button>
+
+<!-- ADMIN OVERLAY -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-modal">
+    <div class="admin-header">
+      <div>
+        <h2>🐾 Panel de Administración</h2>
+        <div class="admin-header-sub">The Dog Palace · Grooming &amp; Spa</div>
+      </div>
+      <button class="admin-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <div id="adminLoginView" class="admin-login">
+      <div style="font-size:2.5rem">🔐</div>
+      <h3>Acceso de Administrador</h3>
+      <p>Ingresa el PIN de administrador para continuar</p>
+      <input type="password" id="adminPin" placeholder="● ● ● ●" maxlength="4" onkeydown="if(event.key==='Enter')checkPin()">
+      <button class="btn btn-gold" onclick="checkPin()">Entrar</button>
+      <p style="font-size:0.72rem;color:#445;margin-top:0.5rem">PIN por defecto: 1234 · Cámbialo en el código</p>
+    </div>
+    <div id="adminMainView" style="display:none">
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchAdminTab('overview')" id="atab-overview">📊 Resumen</button>
+        <button class="admin-tab" onclick="switchAdminTab('add')" id="atab-add">➕ Nueva cita</button>
+        <button class="admin-tab" onclick="switchAdminTab('all')" id="atab-all">📋 Todas las citas</button>
+      </div>
+      <!-- OVERVIEW TAB -->
+      <div class="admin-body admin-panel active" id="apanel-overview">
+        <div class="admin-stats">
+          <div class="admin-stat-card"><h3 id="stat-today">0</h3><p data-es="Citas hoy" data-en="Today's appts">Citas hoy</p></div>
+          <div class="admin-stat-card"><h3 id="stat-upcoming">0</h3><p data-es="Próximas citas" data-en="Upcoming">Próximas citas</p></div>
+          <div class="admin-stat-card"><h3 id="stat-total">0</h3><p data-es="Total registradas" data-en="Total registered">Total registradas</p></div>
+        </div>
+        <h3 style="color:#aab;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem" data-es="Citas de hoy" data-en="Today's appointments">Citas de hoy</h3>
+        <div id="admin-today-list"><div class="admin-empty">No hay citas para hoy</div></div>
+      </div>
+      <!-- ADD TAB -->
+      <div class="admin-body admin-panel" id="apanel-add">
+        <div class="admin-form">
+          <h3 id="admin-form-title">➕ Agregar nueva cita</h3>
+          <div class="admin-form-grid">
+            <div class="form-group"><label>Nombre del dueño *</label><input type="text" id="af-owner" placeholder="Nombre completo"></div>
+            <div class="form-group"><label>Nombre del perro *</label><input type="text" id="af-dog" placeholder="Nombre del perro"></div>
+            <div class="form-group"><label>Raza</label><input type="text" id="af-breed" placeholder="Raza del perro"></div>
+            <div class="form-group"><label>Teléfono</label><input type="text" id="af-phone" placeholder="+52 ..."></div>
+            <div class="form-group"><label>Servicio *</label>
+              <select id="af-service">
+                <option value="">— Selecciona —</option>
+                <option>Baño y Cepillado</option><option>Corte Completo</option>
+                <option>Corte de Uñas</option><option>Limpieza de Oídos</option>
+                <option>Cepillado Dental</option><option>Paquete Palace</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Tamaño del perro</label>
+              <select id="af-size">
+                <option value="">— Selecciona —</option>
+                <option value="Pequeño (hasta 5kg)">Pequeño (hasta 5kg)</option>
+                <option value="Mediano (5–15kg)">Mediano (5–15kg)</option>
+                <option value="Grande (15–30kg)">Grande (15–30kg)</option>
+                <option value="Extra grande (+30kg)">Extra grande (+30kg)</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Fecha *</label><input type="date" id="af-date"></div>
+            <div class="form-group"><label>Hora *</label>
+              <select id="af-time">
+                <option value="">— Selecciona —</option>
+                <option>8:00</option><option>8:30</option><option>9:00</option><option>9:30</option>
+                <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
+                <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+                <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+                <option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option>
+                <option>18:00</option><option>18:30</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Precio cobrado (MXN)</label><input type="number" id="af-price" placeholder="Ej. 450"></div>
+            <div class="form-group" style="grid-column:1/-1"><label>Notas</label><textarea id="af-notes" rows="2" placeholder="Alergias, comportamiento, instrucciones especiales..."></textarea></div>
+          </div>
+          <div class="admin-form-actions">
+            <button class="btn-ghost" onclick="clearAdminForm()">Limpiar</button>
+            <button class="btn btn-gold" onclick="saveAdminAppt()">💾 Guardar cita</button>
+          </div>
+        </div>
+        <input type="hidden" id="af-edit-id">
+      </div>
+      <!-- ALL APPOINTMENTS TAB -->
+      <div class="admin-body admin-panel" id="apanel-all">
+        <div class="admin-filter">
+          <input type="text" id="admin-search" placeholder="🔍 Buscar por nombre..." oninput="renderAdminAll()">
+          <select id="admin-filter-day" onchange="renderAdminAll()">
+            <option value="all">Todos los días</option>
+            <option value="today">Solo hoy</option>
+            <option value="upcoming">Próximas</option>
+            <option value="past">Pasadas</option>
+          </select>
+        </div>
+        <div id="admin-all-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <img src="data:image/jpeg;base64,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" alt="The Dog Palace logo">
+    <div class="nav-logo-text">The Dog Palace<span>Grooming &amp; Spa · Tijuana</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="#social" data-es="Videos" data-en="Videos">Videos</a>
+    <a href="#cita" data-es="Cita" data-en="Appointment">Cita</a>
+    <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+    <button class="lang-toggle" onclick="toggleLang()">EN / ES</button>
+    <button class="btn-admin-nav" onclick="openAdmin()">🔐 <span data-es="Admin" data-en="Admin">Admin</span></button>
+    <button class="btn-book-nav" onclick="document.getElementById('cita').scrollIntoView({behavior:'smooth'})" data-es="Reservar" data-en="Book now">Reservar</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGFiMTAxMDAwMDdmMDMwMDAwMjQwNTAwMDA3ZTA1MDAwMDMzMDYwMDAwYzYwNzAwMDAxYjBiMDAwMGE5MGIwMDAwNWIwYzAwMDA1ODBkMDAwMGQ0MTEwMDAwAP/bAIQABQYGCwgLCwsLCw0LCwsNDg4NDQ4ODw0ODg4NDxAQEBEREBAQEA8TEhMPEBETFBQTERMWFhYTFhUVFhkWGRYWEgEFBQUKBwoICQkICwgKCAsKCgkJCgoMCQoJCgkMDQsKCwsKCw0MCwsICwsMDAwNDQwMDQoLCg0MDQ0MExQTExOc/8IAEQgAyADIAwEiAAIRAQMRAf/EAHwAAQACAwEBAAAAAAAAAAAAAAAEBQECAwYHEAABAwEFBQYEBAQHAAAAAAABAAIRAwQSITFBEDBAUZETIDJhcbEUIoGhI0JQcjND4fBSYoKDorLBEQEAAQMCBAYDAQEBAAAAAAABEQAhMUFRYXGBkRAwQKGxwSDR8OHxUP/aAAwDAQACAAMAAAABsRaRAAAAAAAAAAAFdY1xYgAAAEjDXl66dx3pfOfVKDnt4/l6Wm784Y6YAAAV1jXFiAAAAdD29z4u3g971RtNpfzz0VFK48h30AAAV1jXFiAAAd8L31GIkGRaGOW+nTnsxtx7QcqTyn0fwsvjCEjmAArrGuLEAAG/vfO+2iduUOxquG8GdYabYkQZ3DTahucxN9ZCT112+ZcPT+Ynxg3wArrGuLEAAHT3/wA8teO/v6iRmJ2nVeavOOd54n0XXT0dT0mcOm8aPSb4o4xOjhkArrGuLEAADvwl4esvddq6VW5sPLba8b/Wq3xJv40nltV+J+lfPe/OtEvkAArrGuLEAADtxYfU8wptbKRJbCqlymQ5Yz1+b/QfmsnjoJfIABXWNcWIAAALmb5nrz2+nvOejgyA1yorf592596sm8AyAAV1jXFiAAAAB6fzDTP1SJReci9usEmcAyAAAV1jXFiAABLiX2manW5g4zDW2pW4kyGK7T0nDGabXt12xXjfAACusa4sQAAN9B17RN9UrEYzN4cRN4cdTZozgMgAFdY1xYq4WKuFirhYq4WKuFirhYq4WKuFirhYq4WKuFirhY1wf//aAAgBAQABBQL9cY28U2zHsk5scJTIBFjgtswlVbJJfZqlR1UBp4OxvvM22ipcbwbWlyotq01frq/WV+sq/a1E5pbwVnsl5MY1u2cdjwCK9jHAMYXkNDG2XwbIxJjZaBLKfzsrU+zdvQJVnodmH5Wb+HWq3TZyHbK8AU7QHOr+Cz+CtRFQPYWHeWKJ2WXwlgKYwN2PYHgUWhWvCmwQFboO9a6FTq39llyVe0CkvjyqNYVQrX/Dbk58OqPvHe2V0Pr1ezbQZdZe/FttJfEPVipQHvh723hZny221fm3zH3DZ6d7ZWEL4lkfEMv/ABLFQPavVelKqVDUO+pMvuG2zM7N7mAvtNK+6lTuN2WlsP3zHR3KtO8B2qZTu9ysfm39Cpfb3nOui+IJngLLX7M2ip+L3ba+Gdt+HwLnSrLaZ7j3horVe0PCWe17KtUUxWrGoeGpWoNp1KhqHguycuzcmsLkGkosIJYQgwlXCowuGC0jf0l/LpiW2ht5N+ZrA6KJhuapgXAHMNff3irxTWlBhC7MlFrldKDSnSFJRM8DKlSVJUqf0T//2gAIAQMAAT8B4LsynM5It3bXeqvevRPM7oCNpTxruKY1WqhFZAqE4R32OhapxwwTXSUcZRdhO4CARw+qxEoBVBu42VNNzewhAzse6FO6BhGpugFChQrqjj//2gAIAQIAAT8B4I1wqdbOdU18+u7ezEwR1VzzHUKiIGkndPcXSZw5bRoqL8wTluK79FofUf8AqvCPNBYEiPJTjKY68J79VkieS09T7JjRInVVKYAyjljKGBafr901kuj1QHfOqcZTYIM/l9l8rozGHNPMny0VnOnTckQgUXfTZZxnuTTxnqnNu4bKLJM6BAR9d05gdmm0JOOQ+6AjcvMf35K9n6wr+v8AYRcu0U47khQVCA4P/9oACAEBAAY/Av1wDnsP+I49OGxy1QLXdVed8x6DZebE8jkpMD6q6MYzPnwn7cO4TrpwmAlGGZ814G9f6rwN6rwDqhLMuSxEcFLuihu2Oe3HJS3pwEBYaIHV2O2drvRCdQo30BeZzR9E30XPzMwEXfQj02SdFlHmE70Kb6L2Kg70k6D32xyJH32GNdkFZJyHpsafMjfDkR99jv3u2cyvB91h02OQTRoZ+yPKSeu+HmvPRAKNA1XxpmvErx1TBzmURzUHxNwKu8h77+V2j8ScvLYHj8ufpqpvKbuEcvupvI1NBgNl5uDx9/JSd+B3HNOow+ixH5T7prW8uiA2mMjj13/rh17mcEZFZM9f6LmTme4RyJ9+AB78nRXtM1PPgMfCU3kI70c1c8/twQ8hCunPTz7klT04WH9dklY9OHxxI0Ung8lksBsiMVMYLAL1EqdFMLHf0/8AcX+gf9k+P8vupbjEz681d/Njd9MME/TDGVPJ7T7oeV9v/GVBwyd1kLkUP2t9t/msys1nipleJHyXiWJ/XP/aAAgBAQEBPyH/ANziIjq496SLNkzTljADWNHUnwSI5Qe+Pb0giMuw4b8zNaMzJCfhKuv0TsH34BZUpQvacFPE5FiOdS49w4OB6SEHPsae34R5lbmf1n0ikIuBNZtWdnWiqP5H7r+9+6sCHU+2stcxHogMvTm+/OiYAjIffixHE9vGHEeKgGF368uPD0BnM+3GoloTzd2hcXRfNf14T7UzGwfeP1QZa28Ooz2vS1+OadFfUdz+z5zsCVsFDvZn0cKE858U5/lao4iS31lpG2v7qFbLwEyua3GfBXNDmDXSOs1DUJw0kujYpR/NahHL1EmydCmBQnmwcOOqPF/10UiZMY4VxUT7R4ZQEj2reFovezml2R7lQPYHt4IQyJ6f75qY/wBCPyVIRqehudPDO3T38IYSTThxaeQ5v1UosTK08DPAh7JSlOBW3g3oGlZqJ/OAec+3kdz/AAoEdVhu0zWYl5t2pvFIbq5pbZIHJo1x/t+qRphtDhv1px+C6W964ek71olZOWHrSQFsjvt9vPYTEmJpI8RMDSDwtVLi3f0yVoiPftmnlWlEzM2UiWPvtmpiLH7/AO4+CciU0bt6tgmItaY8/blzyLtRgjEW5eCTamExkaItOlA4HNJmz4+6YOELgCSgJ013dXxHaAfzj56NjQ/BQRbxgokp2H9b1oMnG/T7q8V1RrtbQND8OACHKT9+g3Mw8zP5m2IS1NE43cKmO4vf0Fg4ng7/ALqKVz+F27+XGD9i79VZFlU8NnV9El79AxREeBZbP38/giWApnVjA2PSxQ1tNvP9+HYgarUusDGg/wB9OeFhGp29qnjyNA2PRjxGWLmmdaGJLImZMNt96kLkZ64rGnwfMVNiNlHyUtcncouZAt1zQsWyDiGWp4Monjmr6SDOsc9So2ETjHP48/4/hTDgxZNc40pg3MQjeoachG8fQ78Kz/O5yPVeKEGBMhvD80LLHYCzrVpAxbm/ZNaxBRdLV6WawNLhaPhKyt42jZjp54EQiMXxNBY2MtQrQklicXz2pC0MrSW5nxRBuTqztMvxVwqiL3W23tUAZtel71kiNW7lqeiShN25tSxEsbSxS5KxiWfQziJY2qe73rjPeuM96ne7fN81PdtU/wDh/wD/2gAMAwEBAgEDAQAAEPPPPPPPPPPPPKPPPPPka1/PPPKPPPPPPeN/PPPKPPPPlPN+UvPPKPPPHC1bYxHfPKPPPOrf34yfvPKPPPLVH7F3/PPKPPPPsf8A77vzzyjzzzwjTy13zzyjzzzzz7b3zzzyjzzw6BxfFbzzyjzzzxtRgA7zzyjDDDDDDDDDDDCD/9oACAEDAQE/EPQlHI46RWHZZpDgaTr5dgkkcGuTuUywwcI8kJo4EXi744OtRwCz5A82nCnDk/VSnhQs1eRfNYQ7VIT85EaMVkcBnrilk6P5p8k7yRFWB09qi6H/ACln88iM6VB+96kiP8P+1wDfaoi+cvOtbfJ9+SMg0k13eDtxeSLqSUYk8IkatMulvKdSUQEZfalm75M3t8hWniTW3s6NGGn+V/PasNbeSNW8J9H/AP/aAAgBAgEBPxD0KwYnhQbzJGLzPxV3mj9UUSZhLFw6+UsVfoLfGp/zfNHmWSEeXkrF3St0CDwbUZbouX2pG6PkGmNjXjr2o7XwUbGKMEnE3jMa1s6ixCzK1EIh16fmbagvOghuwHdP1UKxE98E1M7uxS71fHDoIfVTn9Ws/FQW/OMSxDPLWpfwbFDVGHHV28CmEwtyFSstC768hJpEjks1AyaeACavPaDrfyQeOJ+1Olf9N/Bi4ieOhV1xT5REDk6lMmCZ+nDjQCAgPJUyRrngn6ocYWHuONYHca8XL6pAcKJjj99a3R/S/wCVOBZG8nkRWxauJUuFfxFR6L//2gAIAQEBAT8Q/wDc3Bg/w2UjQkIHRMnSkDccXUcyKOXgjaJTYv8AgevpPdY6aNTATlrWirH0d5FS8nR1g11ninw1RBZ6K5OphrQZUWwCNlOJS3ugNMHFnh6SXUtL3fV0/CTEfsrono9JwJoy9sUwtREAyhx3pGhz8B9HV5Vkg1Lvra+x90qC7iaXKc+iwSWRIhcOshcNqRF+ISnVMb+JtZEHSYMdvjxUKiWjErBnWWCm78Yk4W34Lp9AS13Og1XAP1ToLLdkCVNV1pluQu/6QPAKoJORtNyp20occ3aHWoSUSBxXAVNQD/ZY9ygYO82M85vO9Szhu9dzz04vOagsBqtS5gxwfoe7faICaj7q6TnuKi7pztA9p1oLgm4vFew/7U+EvYfWO/wlTaoT6hPtmM96kVSN/wApNav06i+x1PuvZpJNEdR83Z58kNnHB18GoH/rhPZoIG9JlmEhJ13pWKAmSt4ZKunhENsgUu5Ll6TUkVddohtfVy71ADU79X/JSHgkY7ybx5fLzV1cSA8YH2Gjf3sdgjcZHfwv0pHKz68JQBSFiN2hwzWR3Pktp5NxcljmOj46S4gN3CmxS66RTPepAWE5i/nADFkU03u/YqUPUS47ZawLep/kaFkpsoGPFAQdaRfsACYEvRbNZsL0/Ss4xAgvnuY4c6Zxg8pCXQfNAtjtqPmoLWXzp5A1rFGnCQnkjq8851PYklEmJMTQOox+DAuf98Fd0UGcZz9lTsmmCXqBCryNrYUfxNYa0sXl2UVIAG6GVz/x4AzJOAOhLSdaIGCXByLpLe/nzswkvYvgI61oe1Ziy0cI8DKiRETg1rJxfaF1F4cQk0PypKZO7KE9mrmcb7i/UfG1yGHiMo4QfP1GS+wZPOKIAwAHI8UtKjkx/KFBqUtDLf8AWdIVe60bKzAFv4D+DP6wzdJegDZ3Jtd2eTShlzY/JrIZASwcKIWsvIE072Uepfv0EvnCXSOXTu0pnYF/gWo/Eb2zI/k0das0u/OCfwt6LVVAO6N3IY5FQHlIwGCdpb9vwDJnO+wGq6FWaj+Lq5fSq5TBs8G8/wCt6L0rfgHRH24NakRor+Hc/Xp1FS7yAzXAYTwpDMcB0R/Tr6O+lgup+hrtrRKYwYBJBvqEc6CbW7ItKLJm7YikIm0ujO0oTwriDAXvtucS1HREgtk2kSeDTpDJRGhhEysC2NKslugMvU0hmraaUei2zeYvWcmYR0AvUCj1AI3KRAYVuhJ88f03UbTXRMuuX4UViu6WYpR52uZYFJyq0ClcODu0OJcsUDRLFw0y8LoJWZDjhSBFf2R1V0zMG8Wuqrb4lcjM7HmNAtrU5CwtwefqAliNyL2nWM0FAiLAiNs4pt2YnkViDlaofbuZYaEIAcc7hk6oqMkN7OTh0WxftfKQag3jgX4VBZJch5183vrwotDLOoJzDJ0oQ3OEg6TFDAZgQHKcehB7kMX4Vbi1IxLJj4pa+bN3D9Hagrk3NpJ8L3r7VO7elYlrIu2jHbSlOWf9Z+f/AA//2Q==" alt="The Dog Palace">
+      <div class="hero-logo-ring"></div>
+    </div>
+    <h1 data-es="Grooming &amp; Spa<br>para tu <em>mejor amigo</em>" data-en="Grooming &amp; Spa<br>for your <em>best friend</em>">Grooming &amp; Spa<br>para tu <em>mejor amigo</em></h1>
+    <p class="hero-sub" data-es="Cuidado profesional con amor — Tijuana, B.C." data-en="Professional care with love — Tijuana, B.C.">Cuidado profesional con amor — Tijuana, B.C.</p>
+    <p class="hero-addr">De las Ferias 5559 · Lomas de Agua Caliente</p>
+    <div class="hero-btns">
+      <button class="btn btn-gold" onclick="document.getElementById('cita').scrollIntoView({behavior:'smooth'})" data-es="Reservar cita" data-en="Book appointment">Reservar cita</button>
+      <button class="btn btn-wa" onclick="openWAFloat()">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </button>
+      <button class="btn btn-blue" onclick="window.open('tel:+526632431293')" data-es="📞 Llamar" data-en="📞 Call">📞 Llamar</button>
+    </div>
+  </div>
+</div>
+
+<!-- HOURS BANNER -->
+<div class="hours-banner">
+  <span id="openStatus" class="open-badge">ABIERTO</span>
+  <span id="todayHours">Hoy: 8 AM – 7 PM</span>
+  <div class="dot"></div>
+  <span data-es="Lun–Vie: 8AM–7PM" data-en="Mon–Fri: 8AM–7PM">Lun–Vie: 8AM–7PM</span>
+  <div class="dot"></div>
+  <span data-es="Sáb–Dom: 9AM–6PM" data-en="Sat–Sun: 9AM–6PM">Sáb–Dom: 9AM–6PM</span>
+  <div class="dot"></div>
+  <span>📞 +52 663 243 1293</span>
+</div>
+
+<!-- SERVICES -->
+<section class="section-wrap" id="servicios">
+  <p class="section-label" data-es="Nuestros servicios" data-en="Our services">Nuestros servicios</p>
+  <h2 class="section-title" data-es="Cuidado completo para tu mejor amigo" data-en="Complete care for your best friend">Cuidado completo para tu mejor amigo</h2>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">🛁</div><h3 data-es="Baño y Cepillado" data-en="Bath &amp; Brush">Baño y Cepillado</h3><p data-es="Shampoo premium, secado y cepillado profundo" data-en="Premium shampoo, blow dry and deep brushing">Shampoo premium, secado y cepillado profundo</p><span class="service-price" data-es="Desde $250 MXN" data-en="From $250 MXN">Desde $250 MXN</span></div>
+    <div class="service-card"><div class="service-icon">✂️</div><h3 data-es="Corte Completo" data-en="Full Groom">Corte Completo</h3><p data-es="Corte según la raza, baño incluido y estilo profesional" data-en="Breed-specific cut, bath included, professional style">Corte según la raza, baño incluido y estilo profesional</p><span class="service-price" data-es="Desde $450 MXN" data-en="From $450 MXN">Desde $450 MXN</span></div>
+    <div class="service-card"><div class="service-icon">💅</div><h3 data-es="Corte de Uñas" data-en="Nail Trim">Corte de Uñas</h3><p data-es="Corte seguro y limado para la comodidad de tu perro" data-en="Safe trim and file for your dog's comfort">Corte seguro y limado para la comodidad de tu perro</p><span class="service-price" data-es="Desde $80 MXN" data-en="From $80 MXN">Desde $80 MXN</span></div>
+    <div class="service-card"><div class="service-icon">👂</div><h3 data-es="Limpieza de Oídos" data-en="Ear Cleaning">Limpieza de Oídos</h3><p data-es="Limpieza suave para prevenir infecciones" data-en="Gentle cleaning to prevent infections">Limpieza suave para prevenir infecciones</p><span class="service-price" data-es="Desde $60 MXN" data-en="From $60 MXN">Desde $60 MXN</span></div>
+    <div class="service-card"><div class="service-icon">🦷</div><h3 data-es="Cepillado Dental" data-en="Teeth Brushing">Cepillado Dental</h3><p data-es="Limpieza dental con pasta especial para mascotas" data-en="Dental cleaning with pet-safe toothpaste">Limpieza dental con pasta especial para mascotas</p><span class="service-price" data-es="Desde $80 MXN" data-en="From $80 MXN">Desde $80 MXN</span></div>
+    <div class="service-card"><div class="service-icon">✨</div><h3 data-es="Paquete Palace" data-en="Palace Package">Paquete Palace</h3><p data-es="Todo incluido: baño, corte, uñas, oídos y dental" data-en="All-inclusive: bath, cut, nails, ears &amp; dental">Todo incluido: baño, corte, uñas, oídos y dental</p><span class="service-price" data-es="Desde $650 MXN" data-en="From $650 MXN">Desde $650 MXN</span></div>
+  </div>
+  <!-- PRICE DISCLAIMER -->
+  <div class="price-note">
+    <span class="note-icon">ℹ️</span>
+    <div>
+      <strong data-es="Precios referenciales — el costo final varía según el tamaño del perro." data-en="Reference prices — final cost varies based on the size of your dog.">Precios referenciales — el costo final varía según el tamaño del perro.</strong>
+      <span data-es=" Los precios mostrados son puntos de partida para perros pequeños. Perros medianos, grandes y de pelaje especial pueden tener un costo diferente. Contáctanos para un presupuesto exacto." data-en=" Prices shown are starting points for small dogs. Medium, large, and special-coat breeds may have a different cost. Contact us for an exact quote."> Los precios mostrados son puntos de partida para perros pequeños. Perros medianos, grandes y de pelaje especial pueden tener un costo diferente. Contáctanos para un presupuesto exacto.</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL / TIKTOK -->
+<div class="social-section" id="social">
+  <div class="social-inner">
+    <p class="section-label" style="color:var(--blue-light)" data-es="Síguenos en redes" data-en="Follow us online">Síguenos en redes</p>
+    <h2 class="section-title light" data-es="Mira nuestro trabajo en <em style='color:var(--gold)'>redes</em>" data-en="See our work on <em style='color:var(--gold)'>social media</em>">Mira nuestro trabajo en <em style="color:var(--gold)">redes</em></h2>
+    <div class="social-grid">
+      <div class="tiktok-embed-wrap">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@thedogpalace3/video/7646902324543212821" data-video-id="7646902324543212821" style="max-width:340px;min-width:280px;border:none;">
+          <section><a target="_blank" title="@thedogpalace3" href="https://www.tiktok.com/@thedogpalace3?refer=embed">@thedogpalace3</a></section>
+        </blockquote>
+        <script async src="https://www.tiktok.com/embed.js"></script>
+      </div>
+      <div class="social-info">
+        <h3 data-es="Síguenos y ve la magia del grooming 🐾" data-en="Follow us and see the grooming magic 🐾">Síguenos y ve la magia del grooming 🐾</h3>
+        <p data-es="Compartimos transformaciones, antes y después, y momentos especiales de nuestros clientes peludos en TikTok y Facebook." data-en="We share transformations, before and afters, and special moments with our furry clients on TikTok and Facebook.">Compartimos transformaciones, antes y después, y momentos especiales de nuestros clientes peludos en TikTok y Facebook.</p>
+        <div class="social-buttons">
+          <a class="social-follow-btn tt" href="https://www.tiktok.com/@thedogpalace3" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            <div><span data-es="Seguir en TikTok" data-en="Follow on TikTok">Seguir en TikTok</span><span class="follow-label">@thedogpalace3</span></div>
+          </a>
+          <a class="social-follow-btn fb" href="https://www.facebook.com/thedogpalacegrooming/" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <div><span data-es="Seguir en Facebook" data-en="Follow on Facebook">Seguir en Facebook</span><span class="follow-label">thedogpalacegrooming</span></div>
+          </a>
+          <button class="social-follow-btn wa-s" onclick="openWADirect()">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <div><span data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</span><span class="follow-label">+52 663 243 1293</span></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<section class="section-wrap" id="cita" style="padding-top:3rem">
+  <div class="booking-section">
+    <p class="section-label" data-es="Agenda tu visita" data-en="Schedule your visit">Agenda tu visita</p>
+    <h2 class="section-title light" data-es="Reserva una cita" data-en="Book an appointment">Reserva una cita</h2>
+    <div class="booking-tabs">
+      <button class="booking-tab active" id="tab-calendar" onclick="switchTab('calendar')">🗓️ <span data-es="Cita en línea" data-en="Online booking">Cita en línea</span></button>
+      <button class="booking-tab" id="tab-whatsapp" onclick="switchTab('whatsapp')">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </button>
+    </div>
+    <div class="booking-panel active" id="panel-calendar">
+      <div class="booking-grid">
+        <div>
+          <div class="form-group"><label data-es="Nombre del dueño" data-en="Owner's name">Nombre del dueño</label><input type="text" id="ownerName" placeholder="Tu nombre completo"></div>
+          <div class="form-group"><label data-es="Nombre del perro" data-en="Dog's name">Nombre del perro</label><input type="text" id="dogName" placeholder="¿Cómo se llama tu perro?"></div>
+          <div class="form-group"><label data-es="Raza" data-en="Breed">Raza</label><input type="text" id="breed" placeholder="Ej. Golden Retriever, Chihuahua..."></div>
+          <div class="form-group"><label data-es="Servicio" data-en="Service">Servicio</label>
+            <select id="service">
+              <option value="">— Selecciona un servicio —</option>
+              <option>Baño y Cepillado</option><option>Corte Completo</option>
+              <option>Corte de Uñas</option><option>Limpieza de Oídos</option>
+              <option>Cepillado Dental</option><option>Paquete Palace</option>
+            </select>
+          </div>
+          <div class="form-group"><label data-es="Fecha" data-en="Date">Fecha</label><input type="date" id="apptDate" onchange="loadTimeSlots()"></div>
+          <div class="form-group">
+            <label data-es="Horario disponible" data-en="Available time">Horario disponible</label>
+            <div class="time-slots" id="timeSlots"><div style="color:#445;font-size:0.78rem;grid-column:1/-1;padding:8px 0" data-es="Selecciona una fecha primero" data-en="Select a date first">Selecciona una fecha primero</div></div>
+            <div class="slot-legend">
+              <span><div class="legend-dot" style="background:#445"></div><span data-es="Disponible" data-en="Available">Disponible</span></span>
+              <span><div class="legend-dot" style="background:var(--blue)"></div><span data-es="Seleccionado" data-en="Selected">Seleccionado</span></span>
+              <span><div class="legend-dot" style="background:#4a1a3a"></div><span data-es="Ocupado" data-en="Booked">Ocupado</span></span>
+            </div>
+          </div>
+          <button class="btn btn-gold full-w" onclick="bookAppointment()" data-es="Confirmar cita 🐾" data-en="Confirm appointment 🐾">Confirmar cita 🐾</button>
+        </div>
+        <div>
+          <h3 style="color:#aab;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem" data-es="Citas del día" data-en="Today's appointments">Citas del día</h3>
+          <div id="apptList"><div class="no-appts" data-es="No hay citas para hoy" data-en="No appointments today">No hay citas para hoy</div></div>
+          <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid #334">
+            <h3 style="color:#aab;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem" data-es="Próximas citas" data-en="Upcoming appointments">Próximas citas</h3>
+            <div id="upcomingList"><div class="no-appts" data-es="No hay citas próximas" data-en="No upcoming appointments">No hay citas próximas</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="booking-panel" id="panel-whatsapp">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem">
+        <div>
+          <div class="wa-booking">
+            <div class="wa-header">
+              <div class="wa-avatar"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+              <div class="wa-header-info"><h3>The Dog Palace 🐾</h3><p><span class="wa-online"></span>En línea · +52 663 243 1293</p></div>
+            </div>
+            <div class="wa-form">
+              <div class="form-group"><label>Tu nombre</label><input type="text" id="wa-owner" placeholder="Nombre completo" oninput="updateWAPreview()"></div>
+              <div class="form-group"><label>Nombre del perro</label><input type="text" id="wa-dog" placeholder="¿Cómo se llama?" oninput="updateWAPreview()"></div>
+              <div class="form-group"><label>Servicio</label>
+                <select id="wa-service" onchange="updateWAPreview()">
+                  <option value="">— Selecciona —</option>
+                  <option>Baño y Cepillado</option><option>Corte Completo</option>
+                  <option>Corte de Uñas</option><option>Limpieza de Oídos</option>
+                  <option>Cepillado Dental</option><option>Paquete Palace</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Fecha preferida</label><input type="date" id="wa-date" oninput="updateWAPreview()"></div>
+              <div class="form-group"><label>Hora preferida</label>
+                <select id="wa-time" onchange="updateWAPreview()">
+                  <option value="">— Selecciona —</option>
+                  <option>8:00 AM</option><option>8:30 AM</option><option>9:00 AM</option><option>9:30 AM</option>
+                  <option>10:00 AM</option><option>10:30 AM</option><option>11:00 AM</option><option>11:30 AM</option>
+                  <option>12:00 PM</option><option>12:30 PM</option><option>1:00 PM</option><option>1:30 PM</option>
+                  <option>2:00 PM</option><option>2:30 PM</option><option>3:00 PM</option><option>3:30 PM</option>
+                  <option>4:00 PM</option><option>4:30 PM</option><option>5:00 PM</option><option>5:30 PM</option>
+                  <option>6:00 PM</option><option>6:30 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="wa-preview"><strong>Vista previa del mensaje</strong><p id="wa-preview-text">Hola The Dog Palace! 👋 Me gustaría agendar una cita...</p></div>
+            <button class="btn btn-wa full-w" onclick="sendWhatsApp()">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Abrir WhatsApp y enviar
+            </button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:1.25rem">
+          <div style="background:#111218;border-radius:var(--radius);padding:1.5rem;border:1px solid #2a2a40">
+            <p style="color:var(--wa);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem">💬 ¿Por qué WhatsApp?</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem">
+              <li style="color:#bbc;font-size:0.82rem;display:flex;gap:9px"><span style="color:var(--wa)">✓</span>Respuesta rápida y personal</li>
+              <li style="color:#bbc;font-size:0.82rem;display:flex;gap:9px"><span style="color:var(--wa)">✓</span>Confirmación inmediata</li>
+              <li style="color:#bbc;font-size:0.82rem;display:flex;gap:9px"><span style="color:var(--wa)">✓</span>Envía fotos de tu mascota</li>
+              <li style="color:#bbc;font-size:0.82rem;display:flex;gap:9px"><span style="color:var(--wa)">✓</span>Recordatorios de cita</li>
+            </ul>
+          </div>
+          <div style="background:#111218;border-radius:var(--radius);padding:1.5rem;border:1px solid #2a2a40;text-align:center">
+            <p style="font-size:1.7rem;margin-bottom:0.4rem">⏱️</p>
+            <p style="color:#dde;font-weight:600;font-size:0.88rem">Tiempo de respuesta promedio</p>
+            <p style="color:var(--wa);font-size:1.7rem;font-weight:700;margin:0.2rem 0">~15 min</p>
+            <p style="color:#556;font-size:0.76rem">Durante horario de atención</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-wrap" id="contacto" style="padding-top:0">
+  <div class="contact-section">
+    <p class="section-label" data-es="Encuéntranos" data-en="Find us">Encuéntranos</p>
+    <h2 class="section-title" data-es="Contacto e información" data-en="Contact &amp; information">Contacto e información</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><h4>Dirección</h4><p>De las Ferias 5559<br>Lomas de Agua Caliente<br>22024 Tijuana, B.C., México</p></div></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div><h4>Teléfono / WhatsApp</h4><p><a href="tel:+526632431293" style="color:var(--blue-dark);text-decoration:none">+52 663 243 1293</a></p></div></div>
+        <div class="contact-item"><div class="contact-icon">🗓️</div><div><h4>Horarios</h4>
+          <table class="hours-table" id="hoursTable">
+            <tr data-day="1"><td data-es="Lunes" data-en="Monday">Lunes</td><td>8:00 AM – 7:00 PM</td></tr>
+            <tr data-day="2"><td data-es="Martes" data-en="Tuesday">Martes</td><td>8:00 AM – 7:00 PM</td></tr>
+            <tr data-day="3"><td data-es="Miércoles" data-en="Wednesday">Miércoles</td><td>8:00 AM – 7:00 PM</td></tr>
+            <tr data-day="4"><td data-es="Jueves" data-en="Thursday">Jueves</td><td>8:00 AM – 7:00 PM</td></tr>
+            <tr data-day="5"><td data-es="Viernes" data-en="Friday">Viernes</td><td>8:00 AM – 7:00 PM</td></tr>
+            <tr data-day="6"><td data-es="Sábado" data-en="Saturday">Sábado</td><td>9:00 AM – 6:00 PM</td></tr>
+            <tr data-day="0"><td data-es="Domingo" data-en="Sunday">Domingo</td><td>9:00 AM – 6:00 PM</td></tr>
+          </table>
+        </div></div>
+        <div class="social-row">
+          <a class="social-link fb" href="https://www.facebook.com/thedogpalacegrooming/" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
+          <a class="social-link tt" href="https://www.tiktok.com/@thedogpalace3" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>TikTok</a>
+          <button class="social-link wa-c" onclick="openWADirect()"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</button>
+        </div>
+      </div>
+      <div>
+        <div class="map-box" onclick="window.open('https://maps.google.com/?q=De+las+Ferias+5559+Lomas+de+Agua+Caliente+Tijuana')">
+          <div style="font-size:1.8rem">🗺️</div>
+          <p style="color:var(--blue-light);font-weight:600" data-es="Ver en Google Maps" data-en="View on Google Maps">Ver en Google Maps</p>
+          <p>De las Ferias 5559, Tijuana</p>
+        </div>
+        <div style="margin-top:1rem;background:var(--white);border-radius:var(--radius);padding:1.25rem;border:1px solid #dddaf0;text-align:center">
+          <p style="font-size:0.83rem;color:var(--text2);margin-bottom:0.75rem" data-es="¿Preguntas? Escríbenos o llámanos." data-en="Questions? Message or call us.">¿Preguntas? Escríbenos o llámanos.</p>
+          <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+            <button class="btn btn-gold" style="padding:9px 18px;font-size:0.8rem" onclick="window.open('tel:+526632431293')" data-es="📞 Llamar" data-en="📞 Call">📞 Llamar</button>
+            <button class="btn btn-wa" style="padding:9px 18px;font-size:0.8rem" onclick="openWADirect()"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:8px">© 2025 The Dog Palace · Grooming &amp; Spa · Tijuana, B.C., México</p>
+  <div class="footer-socials">
+    <a class="footer-social-link" href="tel:+526632431293">📞 +52 663 243 1293</a>
+    <a class="footer-social-link" href="https://www.facebook.com/thedogpalacegrooming/" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
+    <a class="footer-social-link" href="https://www.tiktok.com/@thedogpalace3" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>TikTok</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════
+//  CONFIG — change PIN and phone here
+// ══════════════════════════════════════════════════
+const ADMIN_PIN = '1234';  // ← Change this to your PIN
+const PHONE = '526632431293';
+const HOURS = {0:[9,18],1:[8,19],2:[8,19],3:[8,19],4:[8,19],5:[8,19],6:[9,18]};
+
+// ══════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════
+let lang = 'es';
+let appointments = JSON.parse(localStorage.getItem('dogpalace_appts') || '[]');
+let selectedTime = null;
+let adminUnlocked = false;
+let editingId = null;
+
+function save() { localStorage.setItem('dogpalace_appts', JSON.stringify(appointments)); }
+
+// ══════════════════════════════════════════════════
+//  LANGUAGE TOGGLE
+// ══════════════════════════════════════════════════
+function toggleLang() {
+  lang = lang === 'es' ? 'en' : 'es';
+  document.querySelectorAll('[data-es]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'SELECT') return;
+    const t = el.getAttribute('data-' + lang);
+    if (t) el.innerHTML = t;
+  });
+  updateOpenStatus();
+  if (document.getElementById('apptDate').value) loadTimeSlots();
+  renderAppointments();
+}
+
+// ══════════════════════════════════════════════════
+//  HOURS & OPEN STATUS
+// ══════════════════════════════════════════════════
+function updateOpenStatus() {
+  const n = new Date(), d = n.getDay(), h = n.getHours() + n.getMinutes() / 60;
+  const hrs = HOURS[d], isOpen = h >= hrs[0] && h < hrs[1];
+  const b = document.getElementById('openStatus');
+  b.textContent = isOpen ? (lang === 'es' ? 'ABIERTO' : 'OPEN') : (lang === 'es' ? 'CERRADO' : 'CLOSED');
+  b.style.background = isOpen ? 'var(--dark)' : '#5a1a1a';
+  b.style.color = isOpen ? 'var(--gold)' : '#ff8888';
+  document.getElementById('todayHours').textContent = (lang === 'es' ? 'Hoy' : 'Today') + ': ' + hrs[0] + ':00 AM – ' + hrs[1] + ':00 PM';
+  document.querySelectorAll('#hoursTable tr').forEach(tr => tr.classList.toggle('today', parseInt(tr.getAttribute('data-day')) === d));
+}
+
+// ══════════════════════════════════════════════════
+//  PUBLIC BOOKING
+// ══════════════════════════════════════════════════
+function switchTab(t) {
+  document.querySelectorAll('.booking-tab').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.booking-panel').forEach(x => x.classList.remove('active'));
+  document.getElementById('tab-' + t).classList.add('active');
+  document.getElementById('panel-' + t).classList.add('active');
+}
+
+function loadTimeSlots() {
+  const dv = document.getElementById('apptDate').value;
+  if (!dv) return;
+  const hrs = HOURS[new Date(dv + 'T12:00:00').getDay()];
+  const c = document.getElementById('timeSlots');
+  c.innerHTML = ''; selectedTime = null;
+  const slots = [];
+  for (let h = hrs[0]; h < hrs[1]; h++) { slots.push(h + ':00'); if (h + .5 < hrs[1]) slots.push(h + ':30'); }
+  const booked = appointments.filter(a => a.date === dv).map(a => a.time);
+  slots.forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'time-slot';
+    div.textContent = fmtT(s);
+    if (booked.includes(s)) div.classList.add('booked');
+    else div.onclick = () => selTime(s, div);
+    c.appendChild(div);
+  });
+}
+
+function fmtT(s) {
+  const [h, m] = s.split(':').map(Number);
+  return (h > 12 ? h - 12 : h === 0 ? 12 : h) + ':' + (m === 0 ? '00' : m) + ' ' + (h >= 12 ? 'PM' : 'AM');
+}
+
+function selTime(s, el) {
+  document.querySelectorAll('.time-slot').forEach(x => x.classList.remove('selected'));
+  el.classList.add('selected'); selectedTime = s;
+}
+
+function bookAppointment() {
+  const o = document.getElementById('ownerName').value.trim();
+  const d = document.getElementById('dogName').value.trim();
+  const b = document.getElementById('breed').value.trim();
+  const s = document.getElementById('service').value;
+  const dt = document.getElementById('apptDate').value;
+  if (!o || !d || !s || !dt || !selectedTime) {
+    showToast(lang === 'es' ? 'Por favor completa todos los campos y selecciona un horario.' : 'Please fill in all fields and select a time.', 'error'); return;
+  }
+  appointments.push({ id: 'a' + Date.now(), owner: o, dog: d, breed: b, service: s, date: dt, time: selectedTime, source: 'web' });
+  save();
+  showToast(lang === 'es' ? `¡Cita confirmada para ${d}! 🐾` : `Appointment confirmed for ${d}! 🐾`, 'ok');
+  ['ownerName', 'dogName', 'breed'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('service').value = '';
+  selectedTime = null; loadTimeSlots(); renderAppointments();
+}
+
+function cancelAppointment(id) {
+  const a = appointments.find(x => x.id === id);
+  if (!a) return;
+  if (!confirm(`¿Cancelar la cita de ${a.dog}?`)) return;
+  appointments = appointments.filter(x => x.id !== id);
+  save();
+  showToast(lang === 'es' ? `Cita de ${a.dog} cancelada.` : `${a.dog}'s appointment cancelled.`, 'error');
+  if (document.getElementById('apptDate').value) loadTimeSlots();
+  renderAppointments(); renderAdminViews();
+}
+
+function fmtD(d) {
+  return new Date(d + 'T12:00:00').toLocaleDateString(lang === 'es' ? 'es-MX' : 'en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function renderAppointments() {
+  const td = new Date().toISOString().split('T')[0];
+  const ta = appointments.filter(a => a.date === td).sort((a, b) => a.time.localeCompare(b.time));
+  const up = appointments.filter(a => a.date > td).sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
+  renderList('apptList', ta, lang === 'es' ? 'No hay citas para hoy' : 'No appointments today');
+  renderList('upcomingList', up, lang === 'es' ? 'No hay citas próximas' : 'No upcoming appointments');
+}
+
+function renderList(id, list, empty) {
+  const el = document.getElementById(id);
+  if (!list.length) { el.innerHTML = `<div class="no-appts">${empty}</div>`; return; }
+  el.innerHTML = list.map(a => `
+    <div class="appt-item">
+      <div class="appt-info">
+        <h4>🐾 ${a.dog} <span style="color:#556;font-weight:400">(${a.owner})</span></h4>
+        <p>${a.service}${a.size ? ' · ' + a.size : ''} · ${fmtT(a.time)}${a.date !== new Date().toISOString().split('T')[0] ? ' · ' + fmtD(a.date) : ''}${a.price ? ' · $' + a.price + ' MXN' : ''}</p>
+      </div>
+      <button class="cancel-btn" onclick="cancelAppointment('${a.id}')">✕ Cancelar</button>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════════════════
+//  WHATSAPP
+// ══════════════════════════════════════════════════
+function updateWAPreview() {
+  const o = document.getElementById('wa-owner').value || '[Tu nombre]';
+  const d = document.getElementById('wa-dog').value || '[Nombre del perro]';
+  const s = document.getElementById('wa-service').value || '[Servicio]';
+  const dt = document.getElementById('wa-date').value;
+  const t = document.getElementById('wa-time').value || '[Hora]';
+  document.getElementById('wa-preview-text').textContent =
+    `Hola The Dog Palace! 👋\n\nMe gustaría agendar una cita:\n\n👤 Dueño: ${o}\n🐾 Perro: ${d}\n✂️ Servicio: ${s}\n📅 Fecha: ${dt ? fmtD(dt) : '[Fecha]'}\n⏰ Hora: ${t}\n\n¿Está disponible ese horario?`;
+}
+function sendWhatsApp() {
+  const o = document.getElementById('wa-owner').value.trim();
+  const d = document.getElementById('wa-dog').value.trim();
+  const s = document.getElementById('wa-service').value;
+  if (!o || !d || !s) { showToast('Por favor completa nombre, perro y servicio.', 'error'); return; }
+  const dt = document.getElementById('wa-date').value, t = document.getElementById('wa-time').value;
+  const msg = `Hola The Dog Palace! 👋\n\nMe gustaría agendar una cita:\n\n👤 Dueño: ${o}\n🐾 Perro: ${d}\n✂️ Servicio: ${s}\n📅 Fecha: ${dt ? fmtD(dt) : 'a coordinar'}\n⏰ Hora: ${t || 'a coordinar'}\n\n¿Está disponible ese horario?`;
+  window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg), '_blank');
+}
+function openWAFloat() { switchTab('whatsapp'); document.getElementById('cita').scrollIntoView({ behavior: 'smooth' }); }
+function openWADirect() { window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent('Hola The Dog Palace! 👋 Me gustaría agendar una cita para mi perro.'), '_blank'); }
+
+// ══════════════════════════════════════════════════
+//  ADMIN PANEL
+// ══════════════════════════════════════════════════
+function openAdmin() {
+  document.getElementById('adminOverlay').classList.add('open');
+  if (!adminUnlocked) {
+    document.getElementById('adminLoginView').style.display = 'flex';
+    document.getElementById('adminMainView').style.display = 'none';
+    setTimeout(() => document.getElementById('adminPin').focus(), 100);
+  }
+}
+function closeAdmin() { document.getElementById('adminOverlay').classList.remove('open'); }
+
+function checkPin() {
+  const pin = document.getElementById('adminPin').value;
+  if (pin === ADMIN_PIN) {
+    adminUnlocked = true;
+    document.getElementById('adminLoginView').style.display = 'none';
+    document.getElementById('adminMainView').style.display = 'block';
+    renderAdminViews();
+    showToast('¡Bienvenido, admin! 🐾', 'ok');
+  } else {
+    showToast('PIN incorrecto. Intenta de nuevo.', 'error');
+    document.getElementById('adminPin').value = '';
+  }
+}
+
+function switchAdminTab(t) {
+  document.querySelectorAll('.admin-tab').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.admin-panel').forEach(x => x.classList.remove('active'));
+  document.getElementById('atab-' + t).classList.add('active');
+  document.getElementById('apanel-' + t).classList.add('active');
+  if (t === 'all') renderAdminAll();
+}
+
+function renderAdminViews() {
+  if (!adminUnlocked) return;
+  const td = new Date().toISOString().split('T')[0];
+  const todayA = appointments.filter(a => a.date === td);
+  const upcomingA = appointments.filter(a => a.date > td);
+  document.getElementById('stat-today').textContent = todayA.length;
+  document.getElementById('stat-upcoming').textContent = upcomingA.length;
+  document.getElementById('stat-total').textContent = appointments.length;
+  // today list in overview
+  const tl = document.getElementById('admin-today-list');
+  if (!todayA.length) { tl.innerHTML = '<div class="admin-empty">No hay citas para hoy</div>'; }
+  else {
+    tl.innerHTML = todayA.sort((a, b) => a.time.localeCompare(b.time)).map(a => adminApptHTML(a, td)).join('');
+  }
+}
+
+function adminApptHTML(a, td) {
+  const today = td || new Date().toISOString().split('T')[0];
+  const tag = a.date === today ? 'today' : a.date > today ? 'upcoming' : 'past';
+  const tagLabel = tag === 'today' ? 'HOY' : tag === 'upcoming' ? fmtD(a.date) : 'Pasada';
+  return `
+  <div class="admin-appt-item">
+    <div class="admin-appt-main">
+      <span class="admin-appt-badge ${tag}">${tagLabel}</span>
+      <div class="admin-appt-info">
+        <h4>🐾 ${a.dog} · ${a.owner}</h4>
+        <p>${a.service}${a.size ? ' · ' + a.size : ''} · ${fmtT(a.time)} · ${a.date}${a.phone ? ' · ' + a.phone : ''}${a.price ? ' · $' + a.price + ' MXN' : ''}${a.notes ? ' · 📝 ' + a.notes : ''}</p>
+      </div>
+    </div>
+    <div class="admin-appt-actions">
+      <button class="edit-btn" onclick="adminEditAppt('${a.id}')">✏️ Editar</button>
+      <button class="cancel-btn" onclick="cancelAppointment('${a.id}')">✕</button>
+    </div>
+  </div>`;
+}
+
+function renderAdminAll() {
+  const search = (document.getElementById('admin-search')?.value || '').toLowerCase();
+  const filter = document.getElementById('admin-filter-day')?.value || 'all';
+  const td = new Date().toISOString().split('T')[0];
+  let list = [...appointments];
+  if (filter === 'today') list = list.filter(a => a.date === td);
+  else if (filter === 'upcoming') list = list.filter(a => a.date > td);
+  else if (filter === 'past') list = list.filter(a => a.date < td);
+  if (search) list = list.filter(a => (a.owner + a.dog + a.service + (a.breed || '')).toLowerCase().includes(search));
+  list.sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
+  const el = document.getElementById('admin-all-list');
+  if (!list.length) { el.innerHTML = '<div class="admin-empty">No se encontraron citas</div>'; return; }
+  el.innerHTML = list.map(a => adminApptHTML(a, td)).join('');
+}
+
+function adminEditAppt(id) {
+  const a = appointments.find(x => x.id === id);
+  if (!a) return;
+  editingId = id;
+  switchAdminTab('add');
+  document.getElementById('admin-form-title').textContent = '✏️ Editar cita';
+  document.getElementById('af-owner').value = a.owner || '';
+  document.getElementById('af-dog').value = a.dog || '';
+  document.getElementById('af-breed').value = a.breed || '';
+  document.getElementById('af-phone').value = a.phone || '';
+  document.getElementById('af-service').value = a.service || '';
+  document.getElementById('af-size').value = a.size || '';
+  document.getElementById('af-date').value = a.date || '';
+  document.getElementById('af-time').value = a.time || '';
+  document.getElementById('af-price').value = a.price || '';
+  document.getElementById('af-notes').value = a.notes || '';
+  document.getElementById('af-edit-id').value = id;
+}
+
+function saveAdminAppt() {
+  const owner = document.getElementById('af-owner').value.trim();
+  const dog = document.getElementById('af-dog').value.trim();
+  const service = document.getElementById('af-service').value;
+  const date = document.getElementById('af-date').value;
+  const time = document.getElementById('af-time').value;
+  if (!owner || !dog || !service || !date || !time) {
+    showToast('Completa los campos obligatorios (*)', 'error'); return;
+  }
+  const appt = {
+    id: editingId || ('a' + Date.now()),
+    owner, dog,
+    breed: document.getElementById('af-breed').value.trim(),
+    phone: document.getElementById('af-phone').value.trim(),
+    service, date, time,
+    size: document.getElementById('af-size').value,
+    price: document.getElementById('af-price').value,
+    notes: document.getElementById('af-notes').value.trim(),
+    source: editingId ? 'edited' : 'admin'
+  };
+  if (editingId) {
+    const idx = appointments.findIndex(x => x.id === editingId);
+    if (idx > -1) appointments[idx] = appt;
+  } else {
+    appointments.push(appt);
+  }
+  save(); editingId = null;
+  clearAdminForm();
+  renderAdminViews(); renderAppointments();
+  showToast(editingId ? 'Cita actualizada ✓' : '¡Cita agregada! 🐾', 'ok');
+  switchAdminTab('overview');
+}
+
+function clearAdminForm() {
+  ['af-owner','af-dog','af-breed','af-phone','af-size','af-price','af-notes'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('af-service').value = '';
+  document.getElementById('af-date').value = '';
+  document.getElementById('af-time').value = '';
+  document.getElementById('af-edit-id').value = '';
+  document.getElementById('admin-form-title').textContent = '➕ Agregar nueva cita';
+  editingId = null;
+}
+
+// Close admin on backdrop click
+document.getElementById('adminOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeAdmin();
+});
+
+// ══════════════════════════════════════════════════
+//  TOAST
+// ══════════════════════════════════════════════════
+function showToast(msg, type = 's') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast' + (type === 'error' ? ' error' : type === 'wa' ? ' wa-t' : type === 'ok' ? ' ok' : '');
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// ══════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════
+const td0 = new Date().toISOString().split('T')[0];
+document.getElementById('apptDate').value = td0;
+document.getElementById('apptDate').min = td0;
+document.getElementById('wa-date').min = td0;
+document.getElementById('af-date').min = td0;
+updateOpenStatus(); loadTimeSlots(); renderAppointments();
+setInterval(updateOpenStatus, 60000);
+</script>
+</body>
+</html>
