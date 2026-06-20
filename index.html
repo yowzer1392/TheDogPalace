@@ -236,6 +236,7 @@ nav{background:rgba(251,248,241,0.95);backdrop-filter:blur(10px);padding:0 2rem;
 .social-link.fb{background:#1877F2;color:#fff}
 .social-link.tt{background:#000;color:#fff}
 .social-link.wa-c{background:var(--wa);color:#fff}
+.social-link.ig,.social-follow-btn.ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);color:#fff}
 .social-link svg{width:16px;height:16px;fill:currentColor}
 
 /* FLOATING WA */
@@ -277,7 +278,7 @@ footer a{color:var(--gold-light);text-decoration:none}
 <div class="admin-overlay" id="adminOverlay">
   <div class="admin-modal">
     <div class="admin-hdr">
-      <div><h2>&#128062; Panel de Administracion</h2><div class="admin-hdr-sub">The Dog Palace &middot; Grooming &amp; Spa</div></div>
+      <div><h2>&#128062; Panel de Administración</h2><div class="admin-hdr-sub">The Dog Palace &middot; Grooming &amp; Spa</div></div>
       <button class="admin-close" onclick="closeAdmin()">&#x2715;</button>
     </div>
     <div id="adminLoginView" class="admin-login">
@@ -286,7 +287,7 @@ footer a{color:var(--gold-light);text-decoration:none}
       <p>Ingresa el PIN para continuar</p>
       <input type="password" id="adminPin" placeholder="&#9679; &#9679; &#9679; &#9679;" maxlength="4" onkeydown="if(event.key==='Enter')checkPin()">
       <button class="btn btn-gold" onclick="checkPin()">Entrar</button>
-      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:.5rem">PIN por defecto: 1234 &mdash; cambialo en el codigo</p>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:.5rem">PIN por defecto: 1234 &mdash; cámbialo en el código</p>
     </div>
     <div id="adminMainView" style="display:none">
       <div class="admin-tabs">
@@ -299,7 +300,7 @@ footer a{color:var(--gold-light);text-decoration:none}
       <div class="admin-body admin-panel active" id="apanel-overview">
         <div class="admin-stats">
           <div class="admin-stat"><h3 id="stat-today">0</h3><p>Citas hoy</p></div>
-          <div class="admin-stat"><h3 id="stat-upcoming">0</h3><p>Proximas citas</p></div>
+          <div class="admin-stat"><h3 id="stat-upcoming">0</h3><p>Próximas citas</p></div>
           <div class="admin-stat"><h3 id="stat-requests">0</h3><p>Solicitudes</p></div>
         </div>
         <h3 style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.85rem">Citas de hoy</h3>
@@ -310,16 +311,16 @@ footer a{color:var(--gold-light);text-decoration:none}
         <div style="background:rgba(255,255,255,0.04);border-radius:var(--radius);padding:1.6rem;border:1px solid rgba(255,255,255,0.1)">
           <h3 style="color:var(--gold-light);font-size:0.86rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.3rem;font-family:'Inter',sans-serif" id="admin-form-title">&#10133; Agregar nueva cita</h3>
           <div class="admin-form-grid">
-            <div class="form-group"><label>Nombre del dueno *</label><input type="text" id="af-owner" placeholder="Nombre completo"></div>
+            <div class="form-group"><label>Nombre del dueño *</label><input type="text" id="af-owner" placeholder="Nombre completo"></div>
             <div class="form-group"><label>Nombre de la mascota *</label><input type="text" id="af-dog" placeholder="Nombre de la mascota"></div>
             <div class="form-group"><label>Especie</label><select id="af-species"><option value="Perro">&#128054; Perro</option><option value="Gato">&#128049; Gato</option></select></div>
             <div class="form-group"><label>Raza</label><input type="text" id="af-breed" placeholder="Raza"></div>
-            <div class="form-group"><label>Telefono</label><input type="text" id="af-phone" placeholder="+52 ..."></div>
+            <div class="form-group"><label>Teléfono</label><input type="text" id="af-phone" placeholder="+52 ..."></div>
             <div class="form-group"><label>Servicio *</label>
-              <select id="af-service"><option value="">-- Selecciona --</option><option>Baño y Cepillado</option><option>Corte Completo</option><option>Corte de Unas</option><option>Limpieza de Oidos</option><option>Cepillado Dental</option><option>Paquete Palace</option><option>Deslanado</option></select>
+              <select id="af-service"><option value="">-- Selecciona --</option><option>Baño y Cepillado</option><option>Corte Completo</option><option>Corte de Uñas</option><option>Limpieza de Oídos</option><option>Cepillado Dental</option><option>Paquete Palace</option><option>Deslanado</option></select>
             </div>
-            <div class="form-group"><label>Tamano</label>
-              <select id="af-size"><option value="">-- Selecciona --</option><option>Pequeno (hasta 5kg)</option><option>Mediano (5-15kg)</option><option>Grande (15-30kg)</option><option>Extra grande (+30kg)</option></select>
+            <div class="form-group"><label>Tamaño</label>
+              <select id="af-size"><option value="">-- Selecciona --</option><option>Pequeño (hasta 5kg)</option><option>Mediano (5-15kg)</option><option>Grande (15-30kg)</option><option>Extra grande (+30kg)</option></select>
             </div>
             <div class="form-group"><label>Fecha *</label><input type="date" id="af-date"></div>
             <div class="form-group"><label>Hora *</label>
@@ -347,9 +348,9 @@ footer a{color:var(--gold-light);text-decoration:none}
         <div class="admin-filter">
           <input type="text" id="admin-search" placeholder="&#128269; Buscar por nombre..." oninput="renderAdminAll()">
           <select id="admin-filter-day" onchange="renderAdminAll()">
-            <option value="all">Todos los dias</option>
+            <option value="all">Todos los días</option>
             <option value="today">Solo hoy</option>
-            <option value="upcoming">Proximas</option>
+            <option value="upcoming">Próximas</option>
             <option value="past">Pasadas</option>
           </select>
         </div>
@@ -383,7 +384,7 @@ footer a{color:var(--gold-light);text-decoration:none}
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">&#128062; Grooming &amp; Spa para perros y gatos</div>
-    <h1 data-es="Tu mascota merece<br>un <em>dia de palacio</em>" data-en="Your pet deserves<br>a <em>day at the palace</em>">Tu mascota merece<br>un <em>dia de palacio</em></h1>
+    <h1 data-es="Tu mascota merece<br>un <em>día de palacio</em>" data-en="Your pet deserves<br>a <em>day at the palace</em>">Tu mascota merece<br>un <em>día de palacio</em></h1>
     <p class="lede" data-es="Baño, corte y spa profesional para perros y gatos en el corazon de Tijuana." data-en="Professional bath, grooming and spa for dogs and cats in the heart of Tijuana.">Baño, corte y spa profesional para perros y gatos en el corazon de Tijuana.</p>
     <div class="hero-btns">
       <button class="btn btn-gold" onclick="document.getElementById('cita').scrollIntoView({behavior:'smooth'})" data-es="Solicitar cita" data-en="Request appointment">Solicitar cita</button>
@@ -412,7 +413,7 @@ footer a{color:var(--gold-light);text-decoration:none}
 <section class="section-wrap" id="servicios">
   <p class="section-label reveal" data-es="Nuestros servicios" data-en="Our services">Nuestros servicios</p>
   <h2 class="section-title reveal" data-es="Cuidado completo para <em>perros y gatos</em>" data-en="Complete care for <em>dogs and cats</em>">Cuidado completo para <em>perros y gatos</em></h2>
-  <p class="section-sub reveal" data-es="Cada servicio se adapta a la especie, tamano y tipo de pelaje de tu mascota." data-en="Every service adapts to your pet species, size and coat type.">Cada servicio se adapta a la especie, tamano y tipo de pelaje de tu mascota.</p>
+  <p class="section-sub reveal" data-es="Cada servicio se adapta a la especie, tamaño y tipo de pelaje de tu mascota." data-en="Every service adapts to your pet species, size and coat type.">Cada servicio se adapta a la especie, tamaño y tipo de pelaje de tu mascota.</p>
   <div class="services-grid reveal-stagger">
     <div class="service-card">
       <div class="service-top"><div class="service-icon">&#128705;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
@@ -428,13 +429,13 @@ footer a{color:var(--gold-light);text-decoration:none}
     </div>
     <div class="service-card">
       <div class="service-top"><div class="service-icon">&#128133;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
-      <h3 data-es="Corte de Unas" data-en="Nail Trim">Corte de Unas</h3>
+      <h3 data-es="Corte de Uñas" data-en="Nail Trim">Corte de Uñas</h3>
       <p data-es="Corte seguro y limado para la comodidad de tu mascota." data-en="Safe trim and file for your pet comfort.">Corte seguro y limado para la comodidad de tu mascota.</p>
       <div class="service-price-row"><span class="service-price">&#128054; Desde $80 MXN</span><span class="service-price">&#128049; Desde $90 MXN</span></div>
     </div>
     <div class="service-card">
       <div class="service-top"><div class="service-icon">&#128066;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
-      <h3 data-es="Limpieza de Oidos" data-en="Ear Cleaning">Limpieza de Oidos</h3>
+      <h3 data-es="Limpieza de Oídos" data-en="Ear Cleaning">Limpieza de Oídos</h3>
       <p data-es="Limpieza suave para prevenir infecciones." data-en="Gentle cleaning to prevent infections.">Limpieza suave para prevenir infecciones.</p>
       <div class="service-price-row"><span class="service-price">&#128054; Desde $60 MXN</span><span class="service-price">&#128049; Desde $70 MXN</span></div>
     </div>
@@ -447,13 +448,13 @@ footer a{color:var(--gold-light);text-decoration:none}
     <div class="service-card">
       <div class="service-top"><div class="service-icon">&#129498;</div><div class="service-species"><span class="species-pill">&#128049;</span></div></div>
       <h3 data-es="Deslanado (gatos)" data-en="De-matting (cats)">Deslanado (gatos)</h3>
-      <p data-es="Eliminacion de nudos y pelo muerto, ideal para gatos de pelo largo." data-en="Removal of mats and dead fur, ideal for long-haired cats.">Eliminacion de nudos y pelo muerto, ideal para gatos de pelo largo.</p>
+      <p data-es="Eliminación de nudos y pelo muerto, ideal para gatos de pelo largo." data-en="Removal of mats and dead fur, ideal for long-haired cats.">Eliminación de nudos y pelo muerto, ideal para gatos de pelo largo.</p>
       <div class="service-price-row"><span class="service-price">&#128049; Desde $300 MXN</span></div>
     </div>
     <div class="service-card">
       <div class="service-top"><div class="service-icon">&#10024;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
       <h3 data-es="Paquete Palace" data-en="Palace Package">Paquete Palace</h3>
-      <p data-es="Todo incluido: baño, corte, unas, oidos y dental." data-en="All-inclusive: bath, cut, nails, ears and dental.">Todo incluido: baño, corte, unas, oidos y dental.</p>
+      <p data-es="Todo incluido: baño, corte, uñas, oídos y dental." data-en="All-inclusive: bath, cut, nails, ears and dental.">Todo incluido: baño, corte, uñas, oídos y dental.</p>
       <div class="service-price-row"><span class="service-price">&#128054; Desde $650 MXN</span><span class="service-price">&#128049; Desde $690 MXN</span></div>
     </div>
   </div>
@@ -461,7 +462,7 @@ footer a{color:var(--gold-light);text-decoration:none}
     <span style="font-size:1.2rem;flex-shrink:0">&#8505;&#65039;</span>
     <div>
       <strong data-es="Precios referenciales." data-en="Reference prices.">Precios referenciales.</strong>
-      <span data-es=" El costo final varia segun el tamano y tipo de pelaje de tu mascota. Mascotas medianas, grandes o con pelaje especial pueden tener un costo diferente. Contactanos para un presupuesto exacto." data-en=" Final cost varies by pet size and coat type. Medium, large or special-coat pets may have a different cost. Contact us for an exact quote."> El costo final varia segun el tamano y tipo de pelaje de tu mascota. Mascotas medianas, grandes o con pelaje especial pueden tener un costo diferente. Contactanos para un presupuesto exacto.</span>
+      <span data-es=" El costo final varia segun el tamaño y tipo de pelaje de tu mascota. Mascotas medianas, grandes o con pelaje especial pueden tener un costo diferente. Contactanos para un presupuesto exacto." data-en=" Final cost varies by pet size and coat type. Medium, large or special-coat pets may have a different cost. Contact us for an exact quote."> El costo final varia segun el tamaño y tipo de pelaje de tu mascota. Mascotas medianas, grandes o con pelaje especial pueden tener un costo diferente. Contactanos para un presupuesto exacto.</span>
     </div>
   </div>
 </section>
@@ -501,6 +502,10 @@ footer a{color:var(--gold-light);text-decoration:none}
             <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
             <div><span data-es="Seguir en TikTok" data-en="Follow on TikTok">Seguir en TikTok</span><span class="follow-sub">@thedogpalace3</span></div>
           </a>
+          <a class="social-follow-btn ig" href="https://www.instagram.com/thedog.palace/" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.058 1.645-.07 4.849-.07zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <div><span data-es="Seguir en Instagram" data-en="Follow on Instagram">Seguir en Instagram</span><span class="follow-sub">@thedog.palace</span></div>
+          </a>
           <a class="social-follow-btn fb" href="https://www.facebook.com/thedogpalacegrooming/" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             <div><span data-es="Seguir en Facebook" data-en="Follow on Facebook">Seguir en Facebook</span><span class="follow-sub">thedogpalacegrooming</span></div>
@@ -533,23 +538,23 @@ footer a{color:var(--gold-light);text-decoration:none}
       <div class="request-note">
         <span style="font-size:1.3rem;flex-shrink:0">&#128203;</span>
         <div>
-          <strong data-es="Como funciona?" data-en="How does it work?">Como funciona?</strong>
+          <strong data-es="Cómo funciona?" data-en="How does it work?">Cómo funciona?</strong>
           <span data-es=" Llena el formulario y te llamamos para coordinar disponibilidad. Cada mascota es unica y necesita su propio tiempo, por eso coordinamos contigo directamente antes de confirmar." data-en=" Fill the form and we will call you to coordinate availability. Every pet is unique and needs different time, so we coordinate with you directly before confirming."> Llena el formulario y te llamamos para coordinar disponibilidad. Cada mascota es unica y necesita su propio tiempo, por eso coordinamos contigo directamente antes de confirmar.</span>
         </div>
       </div>
       <div class="booking-grid">
         <div>
-          <div class="form-group"><label data-es="Nombre del dueno *" data-en="Owner name *">Nombre del dueno *</label><input type="text" id="ownerName" placeholder="Tu nombre completo"></div>
-          <div class="form-group"><label data-es="Telefono de contacto *" data-en="Phone number *">Telefono de contacto *</label><input type="tel" id="ownerPhone" placeholder="+52 664 000 0000"></div>
+          <div class="form-group"><label data-es="Nombre del dueño *" data-en="Owner name *">Nombre del dueño *</label><input type="text" id="ownerName" placeholder="Tu nombre completo"></div>
+          <div class="form-group"><label data-es="Teléfono de contacto *" data-en="Phone number *">Teléfono de contacto *</label><input type="tel" id="ownerPhone" placeholder="+52 664 000 0000"></div>
           <div class="form-group"><label data-es="Especie" data-en="Species">Especie</label>
             <select id="species"><option value="Perro">&#128054; Perro</option><option value="Gato">&#128049; Gato</option></select>
           </div>
-          <div class="form-group"><label data-es="Nombre de la mascota *" data-en="Pet name *">Nombre de la mascota *</label><input type="text" id="dogName" placeholder="Como se llama tu mascota?"></div>
+          <div class="form-group"><label data-es="Nombre de la mascota *" data-en="Pet name *">Nombre de la mascota *</label><input type="text" id="dogName" placeholder="Cómo se llama tu mascota?"></div>
           <div class="form-group"><label data-es="Raza" data-en="Breed">Raza</label><input type="text" id="breed" placeholder="Ej. Golden Retriever, Persa..."></div>
-          <div class="form-group"><label data-es="Tamano aproximado" data-en="Approximate size">Tamano aproximado</label>
+          <div class="form-group"><label data-es="Tamaño apróximado" data-en="Appróximate size">Tamaño apróximado</label>
             <select id="petSize">
               <option value="">-- Selecciona --</option>
-              <option value="Pequeno (hasta 5kg)">Pequeno (hasta 5kg)</option>
+              <option value="Pequeño (hasta 5kg)">Pequeño (hasta 5kg)</option>
               <option value="Mediano (5-15kg)">Mediano (5-15kg)</option>
               <option value="Grande (15-30kg)">Grande (15-30kg)</option>
               <option value="Extra grande (+30kg)">Extra grande (+30kg)</option>
@@ -559,16 +564,16 @@ footer a{color:var(--gold-light);text-decoration:none}
             <select id="service">
               <option value="">-- Selecciona un servicio --</option>
               <option>Baño y Cepillado</option><option>Corte Completo</option>
-              <option>Corte de Unas</option><option>Limpieza de Oidos</option>
+              <option>Corte de Uñas</option><option>Limpieza de Oídos</option>
               <option>Cepillado Dental</option><option>Paquete Palace</option><option>Deslanado</option>
             </select>
           </div>
-          <div class="form-group"><label data-es="Dia preferido" data-en="Preferred day">Dia preferido</label><input type="date" id="apptDate"></div>
+          <div class="form-group"><label data-es="Día preferido" data-en="Preferred day">Día preferido</label><input type="date" id="apptDate"></div>
           <div class="form-group"><label data-es="Horario preferido" data-en="Preferred time">Horario preferido</label>
             <select id="timePreference">
               <option value="">-- Selecciona --</option>
-              <option value="Manana (8AM-12PM)">Manana (8AM-12PM)</option>
-              <option value="Mediodia (12PM-3PM)">Mediodia (12PM-3PM)</option>
+              <option value="Mañana (8AM-12PM)">Mañana (8AM-12PM)</option>
+              <option value="Mediodía (12PM-3PM)">Mediodía (12PM-3PM)</option>
               <option value="Tarde (3PM-7PM)">Tarde (3PM-7PM)</option>
               <option value="Cualquier horario">Cualquier horario</option>
             </select>
@@ -577,24 +582,24 @@ footer a{color:var(--gold-light);text-decoration:none}
             <textarea id="petNotes" rows="2" placeholder="Temperamento, alergias, ultima visita al groomer..."></textarea>
           </div>
           <button class="btn btn-gold full-w" onclick="submitRequest()" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud &#128062;</button>
-          <p style="color:rgba(255,255,255,0.35);font-size:0.75rem;text-align:center;margin-top:.75rem" data-es="Te contactaremos por telefono para confirmar tu cita." data-en="We will contact you by phone to confirm your appointment.">Te contactaremos por telefono para confirmar tu cita.</p>
+          <p style="color:rgba(255,255,255,0.35);font-size:0.75rem;text-align:center;margin-top:.75rem" data-es="Te contactaremos por teléfono para confirmar tu cita." data-en="We will contact you by phone to confirm your appointment.">Te contactaremos por teléfono para confirmar tu cita.</p>
         </div>
         <div>
           <div class="info-cards">
             <div class="info-card">
               <div class="info-card-icon">&#9201;&#65039;</div>
-              <h4 data-es="Cuanto tarda el servicio?" data-en="How long does the service take?">Cuanto tarda el servicio?</h4>
-              <p data-es="El tiempo varia segun la raza, tamano y tipo de pelaje. Un Chihuahua puede tardar 45 min; un Husky, 3 horas. Por eso coordinamos contigo antes de confirmar." data-en="Time varies by breed, size and coat type. A Chihuahua may take 45 min; a Husky, 3 hours. That is why we coordinate with you before confirming.">El tiempo varia segun la raza, tamano y tipo de pelaje. Un Chihuahua puede tardar 45 min; un Husky, 3 horas. Por eso coordinamos contigo antes de confirmar.</p>
+              <h4 data-es="Cuánto tarda el servicio?" data-en="How long does the service take?">Cuánto tarda el servicio?</h4>
+              <p data-es="El tiempo varia segun la raza, tamaño y tipo de pelaje. Un Chihuahua puede tardar 45 min; un Husky, 3 horas. Por eso coordinamos contigo antes de confirmar." data-en="Time varies by breed, size and coat type. A Chihuahua may take 45 min; a Husky, 3 hours. That is why we coordinate with you before confirming.">El tiempo varia segun la raza, tamaño y tipo de pelaje. Un Chihuahua puede tardar 45 min; un Husky, 3 horas. Por eso coordinamos contigo antes de confirmar.</p>
             </div>
             <div class="info-card">
               <div class="info-card-icon">&#128222;</div>
-              <h4 data-es="Confirmacion por llamada" data-en="Confirmation by call">Confirmacion por llamada</h4>
-              <p data-es="Una vez que recibamos tu solicitud, te llamamos en menos de 24 horas para agendar el dia y hora exactos." data-en="Once we receive your request, we will call you within 24 hours to schedule the exact day and time.">Una vez que recibamos tu solicitud, te llamamos en menos de 24 horas para agendar el dia y hora exactos.</p>
+              <h4 data-es="Confirmación por llamada" data-en="Confirmation by call">Confirmación por llamada</h4>
+              <p data-es="Una vez que recibamos tu solicitud, te llamamos en menos de 24 horas para agendar el día y hora exactos." data-en="Once we receive your request, we will call you within 24 hours to schedule the exact day and time.">Una vez que recibamos tu solicitud, te llamamos en menos de 24 horas para agendar el día y hora exactos.</p>
             </div>
             <div class="info-card">
               <div class="info-card-icon">&#128172;</div>
               <h4 data-es="Necesitas respuesta rapida?" data-en="Need a quick response?">Necesitas respuesta rapida?</h4>
-              <p data-es="Escribenos por WhatsApp y te respondemos en ~15 minutos durante horario de atencion." data-en="Message us on WhatsApp and we will respond in ~15 minutes during business hours.">Escribenos por WhatsApp y te respondemos en ~15 minutos durante horario de atencion.</p>
+              <p data-es="Escribenos por WhatsApp y te respondemos en ~15 minutos durante horario de atención." data-en="Message us on WhatsApp and we will respond in ~15 minutes during business hours.">Escribenos por WhatsApp y te respondemos en ~15 minutos durante horario de atención.</p>
               <button class="btn btn-wa" style="margin-top:.75rem;padding:10px 18px;font-size:0.82rem" onclick="openWADirect()">
                 <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 WhatsApp
@@ -616,20 +621,20 @@ footer a{color:var(--gold-light);text-decoration:none}
             </div>
             <div class="form-group"><label>Tu nombre</label><input type="text" id="wa-owner" placeholder="Nombre completo" oninput="updateWAPreview()"></div>
             <div class="form-group"><label>Especie</label><select id="wa-species" onchange="updateWAPreview()"><option value="Perro">&#128054; Perro</option><option value="Gato">&#128049; Gato</option></select></div>
-            <div class="form-group"><label>Nombre de la mascota</label><input type="text" id="wa-dog" placeholder="Como se llama?" oninput="updateWAPreview()"></div>
+            <div class="form-group"><label>Nombre de la mascota</label><input type="text" id="wa-dog" placeholder="Cómo se llama?" oninput="updateWAPreview()"></div>
             <div class="form-group"><label>Servicio</label>
               <select id="wa-service" onchange="updateWAPreview()">
                 <option value="">-- Selecciona --</option>
                 <option>Baño y Cepillado</option><option>Corte Completo</option>
-                <option>Corte de Unas</option><option>Limpieza de Oidos</option>
+                <option>Corte de Uñas</option><option>Limpieza de Oídos</option>
                 <option>Cepillado Dental</option><option>Paquete Palace</option><option>Deslanado</option>
               </select>
             </div>
-            <div class="form-group"><label>Dia preferido</label><input type="date" id="wa-date" oninput="updateWAPreview()"></div>
+            <div class="form-group"><label>Día preferido</label><input type="date" id="wa-date" oninput="updateWAPreview()"></div>
             <div class="form-group"><label>Horario preferido</label>
               <select id="wa-time" onchange="updateWAPreview()">
                 <option value="">-- Selecciona --</option>
-                <option>Manana (8AM-12PM)</option><option>Mediodia (12PM-3PM)</option>
+                <option>Mañana (8AM-12PM)</option><option>Mediodía (12PM-3PM)</option>
                 <option>Tarde (3PM-7PM)</option><option>Cualquier horario</option>
               </select>
             </div>
@@ -645,7 +650,7 @@ footer a{color:var(--gold-light);text-decoration:none}
             <p style="color:#6fdb9a;font-size:0.73rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem">&#128172; Por que WhatsApp?</p>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem">
               <li style="color:rgba(255,255,255,0.75);font-size:0.84rem;display:flex;gap:9px"><span style="color:#6fdb9a">&#10003;</span>Respuesta rapida y personal</li>
-              <li style="color:rgba(255,255,255,0.75);font-size:0.84rem;display:flex;gap:9px"><span style="color:#6fdb9a">&#10003;</span>Confirmacion inmediata</li>
+              <li style="color:rgba(255,255,255,0.75);font-size:0.84rem;display:flex;gap:9px"><span style="color:#6fdb9a">&#10003;</span>Confirmación inmediata</li>
               <li style="color:rgba(255,255,255,0.75);font-size:0.84rem;display:flex;gap:9px"><span style="color:#6fdb9a">&#10003;</span>Envia fotos de tu mascota</li>
               <li style="color:rgba(255,255,255,0.75);font-size:0.84rem;display:flex;gap:9px"><span style="color:#6fdb9a">&#10003;</span>Recordatorios de cita</li>
             </ul>
@@ -654,7 +659,7 @@ footer a{color:var(--gold-light);text-decoration:none}
             <p style="font-size:1.8rem;margin-bottom:.4rem">&#9201;&#65039;</p>
             <p style="color:#fff;font-weight:600;font-size:.9rem">Tiempo de respuesta promedio</p>
             <p style="color:#6fdb9a;font-size:1.8rem;font-weight:700;margin:.2rem 0">~15 min</p>
-            <p style="color:rgba(255,255,255,0.4);font-size:.76rem">Durante horario de atencion</p>
+            <p style="color:rgba(255,255,255,0.4);font-size:.76rem">Durante horario de atención</p>
           </div>
         </div>
       </div>
@@ -666,11 +671,11 @@ footer a{color:var(--gold-light);text-decoration:none}
 <section class="section-wrap" id="contacto" style="padding-top:0">
   <div class="contact-box reveal">
     <p class="section-label" data-es="Encuentranos" data-en="Find us">Encuentranos</p>
-    <h2 class="section-title" data-es="Contacto e informacion" data-en="Contact and information">Contacto e informacion</h2>
+    <h2 class="section-title" data-es="Contacto e información" data-en="Contact and information">Contacto e información</h2>
     <div class="contact-grid">
       <div>
-        <div class="contact-item"><div class="contact-icon">&#128205;</div><div><h4 data-es="Direccion" data-en="Address">Direccion</h4><p>De las Ferias 5559<br>Lomas de Agua Caliente<br>22024 Tijuana, B.C., Mexico</p></div></div>
-        <div class="contact-item"><div class="contact-icon">&#128222;</div><div><h4>Telefono / WhatsApp</h4><p><a href="tel:+526632431293" style="color:var(--navy);text-decoration:none;font-weight:600">+52 663 243 1293</a></p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#128205;</div><div><h4 data-es="Dirección" data-en="Address">Dirección</h4><p>De las Ferias 5559<br>Lomas de Agua Caliente<br>22024 Tijuana, B.C., Mexico</p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#128222;</div><div><h4>Teléfono / WhatsApp</h4><p><a href="tel:+526632431293" style="color:var(--navy);text-decoration:none;font-weight:600">+52 663 243 1293</a></p></div></div>
         <div class="contact-item"><div class="contact-icon">&#128197;</div><div><h4 data-es="Horarios" data-en="Hours">Horarios</h4>
           <table class="hours-table" id="hoursTable">
             <tr data-day="1"><td data-es="Lunes" data-en="Monday">Lunes</td><td>8:00 AM - 7:00 PM</td></tr>
@@ -685,6 +690,7 @@ footer a{color:var(--gold-light);text-decoration:none}
         <div class="social-row">
           <a class="social-link fb" href="https://www.facebook.com/thedogpalacegrooming/" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
           <a class="social-link tt" href="https://www.tiktok.com/@thedogpalace3" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>TikTok</a>
+          <a class="social-link ig" href="https://www.instagram.com/thedog.palace/" target="_blank"><svg style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.058 1.645-.07 4.849-.07zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
           <button class="social-link wa-c" onclick="openWADirect()"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</button>
         </div>
       </div>
@@ -712,6 +718,7 @@ footer a{color:var(--gold-light);text-decoration:none}
     <a class="footer-social-link" href="tel:+526632431293">&#128222; +52 663 243 1293</a>
     <a class="footer-social-link" href="https://www.facebook.com/thedogpalacegrooming/" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
     <a class="footer-social-link" href="https://www.tiktok.com/@thedogpalace3" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>TikTok</a>
+    <a class="footer-social-link" href="https://www.instagram.com/thedog.palace/" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.058 1.645-.07 4.849-.07zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
   </div>
 </footer>
 
@@ -783,7 +790,7 @@ function submitRequest() {
   var tp = document.getElementById('timePreference').value;
   var notes = document.getElementById('petNotes').value.trim();
   if (!o || !ph || !d) {
-    showToast(lang === 'es' ? 'Por favor ingresa tu nombre, telefono y nombre de tu mascota.' : 'Please enter your name, phone and pet name.', 'error');
+    showToast(lang === 'es' ? 'Por favor ingresa tu nombre, teléfono y nombre de tu mascota.' : 'Please enter your name, phone and pet name.', 'error');
     return;
   }
   var req = {
@@ -814,12 +821,12 @@ function updateWAPreview() {
   var dt = document.getElementById('wa-date').value;
   var t = document.getElementById('wa-time').value || '[Horario]';
   document.getElementById('wa-preview-text').textContent =
-    'Hola The Dog Palace!\n\nMe gustaria agendar una cita:\n\nDueno: ' + o +
+    'Hola The Dog Palace!\n\nMe gustaria agendar una cita:\n\nDueño: ' + o +
     '\nMascota: ' + d + ' (' + sp + ')' +
     '\nServicio: ' + s +
     '\nFecha: ' + (dt ? fmtD(dt) : '[Fecha]') +
     '\nHorario: ' + t +
-    '\n\nEsta disponible ese horario?';
+    '\n\nEstá disponible ese horario?';
 }
 
 function sendWhatsApp() {
@@ -833,12 +840,12 @@ function sendWhatsApp() {
   }
   var dt = document.getElementById('wa-date').value;
   var t = document.getElementById('wa-time').value;
-  var msg = 'Hola The Dog Palace!\n\nMe gustaria agendar una cita:\n\nDueno: ' + o +
+  var msg = 'Hola The Dog Palace!\n\nMe gustaria agendar una cita:\n\nDueño: ' + o +
     '\nMascota: ' + d + ' (' + sp + ')' +
     '\nServicio: ' + s +
     '\nFecha: ' + (dt ? fmtD(dt) : 'a coordinar') +
     '\nHorario: ' + (t || 'a coordinar') +
-    '\n\nEsta disponible ese horario?';
+    '\n\nEstá disponible ese horario?';
   window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg), '_blank');
 }
 
