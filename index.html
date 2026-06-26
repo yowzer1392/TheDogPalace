@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -415,56 +416,128 @@ footer a{color:var(--gold-light);text-decoration:none}
   <h2 class="section-title reveal" data-es="Cuidado completo para <em>perros y gatos</em>" data-en="Complete care for <em>dogs and cats</em>">Cuidado completo para <em>perros y gatos</em></h2>
   <p class="section-sub reveal" data-es="Cada servicio se adapta a la especie, tamaño y tipo de pelaje de tu mascota." data-en="Every service adapts to your pet species, size and coat type.">Cada servicio se adapta a la especie, tamaño y tipo de pelaje de tu mascota.</p>
   <div class="services-grid reveal-stagger">
+
+    <!-- 1. SERVICIO COMPLETO -->
     <div class="service-card">
-      <div class="service-top"><div class="service-icon">&#128705;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
+      <div class="service-top">
+        <div class="service-icon">&#9986;&#65039;</div>
+        <div class="service-species"><span class="species-pill">&#128054;</span></div>
+      </div>
+      <h3 data-es="Servicio Completo" data-en="Full Service">Servicio Completo</h3>
+      <p data-es="Todo lo que tu perro necesita en una sola visita:" data-en="Everything your dog needs in one visit:">Todo lo que tu perro necesita en una sola visita:</p>
+      <ul style="font-size:0.82rem;color:var(--text2);line-height:1.85;margin:0.5rem 0 1rem;padding-left:1.1rem">
+        <li data-es="Corte de raza" data-en="Breed-specific cut">Corte de raza</li>
+        <li data-es="Corte personalizado según indicaciones del dueño" data-en="Personalized cut per owner instructions">Corte personalizado según indicaciones del dueño</li>
+        <li data-es="Limpieza de oídos" data-en="Ear cleaning">Limpieza de oídos</li>
+        <li data-es="Corte y limado de uñas" data-en="Nail trim and file">Corte y limado de uñas</li>
+      </ul>
+    </div>
+
+    <!-- 2. BAÑO Y CEPILLADO -->
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-icon">&#128705;</div>
+        <div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div>
+      </div>
       <h3 data-es="Baño y Cepillado" data-en="Bath &amp; Brush">Baño y Cepillado</h3>
       <p data-es="Shampoo premium, secado y cepillado profundo para perros y gatos." data-en="Premium shampoo, blow dry and deep brushing for dogs and cats.">Shampoo premium, secado y cepillado profundo para perros y gatos.</p>
-      <div class="service-price-row"><span class="service-price">&#128054; Desde $250 MXN</span><span class="service-price">&#128049; Desde $280 MXN</span></div>
     </div>
+
+    <!-- 3. CORTE DE UÑAS — dog or cat specified -->
     <div class="service-card">
-      <div class="service-top"><div class="service-icon">&#9986;&#65039;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
-      <h3 data-es="Corte Completo" data-en="Full Groom">Corte Completo</h3>
-      <p data-es="Corte segun la raza, baño incluido y estilo profesional." data-en="Breed-specific cut, bath included and professional style.">Corte segun la raza, baño incluido y estilo profesional.</p>
-      <div class="service-price-row"><span class="service-price">&#128054; Desde $450 MXN</span><span class="service-price">&#128049; Desde $480 MXN</span></div>
-    </div>
-    <div class="service-card">
-      <div class="service-top"><div class="service-icon">&#128133;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
+      <div class="service-top">
+        <div class="service-icon">&#128133;</div>
+        <div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div>
+      </div>
       <h3 data-es="Corte de Uñas" data-en="Nail Trim">Corte de Uñas</h3>
       <p data-es="Corte seguro y limado para la comodidad de tu mascota." data-en="Safe trim and file for your pet comfort.">Corte seguro y limado para la comodidad de tu mascota.</p>
-      <div class="service-price-row"><span class="service-price">&#128054; Desde $80 MXN</span><span class="service-price">&#128049; Desde $90 MXN</span></div>
     </div>
-    <div class="service-card">
-      <div class="service-top"><div class="service-icon">&#128066;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
-      <h3 data-es="Limpieza de Oídos" data-en="Ear Cleaning">Limpieza de Oídos</h3>
-      <p data-es="Limpieza suave para prevenir infecciones." data-en="Gentle cleaning to prevent infections.">Limpieza suave para prevenir infecciones.</p>
-      <div class="service-price-row"><span class="service-price">&#128054; Desde $60 MXN</span><span class="service-price">&#128049; Desde $70 MXN</span></div>
+
+    <!-- 4. LIMPIEZA DENTAL — full description, dogs only -->
+    <div class="service-card" style="grid-column:span 1">
+      <div class="service-top">
+        <div class="service-icon">&#129463;</div>
+        <div class="service-species"><span class="species-pill">&#128054;</span></div>
+      </div>
+      <h3 data-es="Limpieza Dental The Dog Palace — Sin Sedación" data-en="The Dog Palace Dental Cleaning — No Sedation">Limpieza Dental The Dog Palace &mdash; Sin Sedación</h3>
+      <p style="font-size:0.82rem;color:var(--text2);line-height:1.7;margin-bottom:0.75rem"
+        data-es="Servicio profesional de limpieza dental para eliminar sarro y placa en perritos, 100% sin anestesia, sin medicamentos y sin calmantes."
+        data-en="Professional dental cleaning to remove tartar and plaque in dogs, 100% without anesthesia, medications or sedatives.">
+        Servicio profesional de limpieza dental para eliminar sarro y placa en perritos, 100% sin anestesia, sin medicamentos y sin calmantes.
+      </p>
+      <p style="font-size:0.8rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem"
+        data-es="Usamos instrumentos manuales especiales + pasta enzimática exclusiva para perros para:"
+        data-en="We use special manual instruments + exclusive enzymatic paste for dogs to:">
+        Usamos instrumentos manuales especiales + pasta enzimática exclusiva para perros para:
+      </p>
+      <ol style="font-size:0.8rem;color:var(--text2);line-height:1.8;margin:0 0 0.75rem;padding-left:1.2rem">
+        <li data-es="Remover sarro visible de dientes y línea de la encía" data-en="Remove visible tartar from teeth and gum line">Remover sarro visible de dientes y línea de la encía</li>
+        <li data-es="Pulir la superficie para retrasar que se vuelva a formar" data-en="Polish the surface to slow re-formation">Pulir la superficie para retrasar que se vuelva a formar</li>
+        <li data-es="Refrescar el aliento y mejorar la salud bucal" data-en="Freshen breath and improve oral health">Refrescar el aliento y mejorar la salud bucal</li>
+      </ol>
+      <div style="background:#fff8ed;border:1px solid #f0d9a0;border-radius:10px;padding:0.7rem 0.9rem;font-size:0.77rem;color:#7a5c1e;margin-bottom:1rem;line-height:1.6"
+        data-es="⚠️ Importante: Este es un servicio cosmético/preventivo. No sustituye una profilaxis veterinaria con sedación. Ideal para mantenimiento entre limpiezas profundas con tu veterinario."
+        data-en="⚠️ Important: This is a cosmetic/preventive service. It does not replace veterinary prophylaxis with sedation. Ideal for maintenance between deep cleanings with your vet.">
+        ⚠️ <strong>Importante:</strong> Este es un servicio cosmético/preventivo. No sustituye una profilaxis veterinaria con sedación. Ideal para mantenimiento entre limpiezas profundas con tu veterinario.
+      </div>
     </div>
-    <div class="service-card">
-      <div class="service-top"><div class="service-icon">&#129463;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
-      <h3 data-es="Cepillado Dental" data-en="Teeth Brushing">Cepillado Dental</h3>
-      <p data-es="Limpieza dental con pasta especial para mascotas." data-en="Dental cleaning with pet-safe toothpaste.">Limpieza dental con pasta especial para mascotas.</p>
-      <div class="service-price-row"><span class="service-price">&#128054; Desde $80 MXN</span><span class="service-price">&#128049; Desde $90 MXN</span></div>
-    </div>
-    <div class="service-card">
-      <div class="service-top"><div class="service-icon">&#129498;</div><div class="service-species"><span class="species-pill">&#128049;</span></div></div>
-      <h3 data-es="Deslanado (gatos)" data-en="De-matting (cats)">Deslanado (gatos)</h3>
-      <p data-es="Eliminación de nudos y pelo muerto, ideal para gatos de pelo largo." data-en="Removal of mats and dead fur, ideal for long-haired cats.">Eliminación de nudos y pelo muerto, ideal para gatos de pelo largo.</p>
-      <div class="service-price-row"><span class="service-price">&#128049; Desde $300 MXN</span></div>
-    </div>
-    <div class="service-card">
-      <div class="service-top"><div class="service-icon">&#10024;</div><div class="service-species"><span class="species-pill">&#128054;</span><span class="species-pill">&#128049;</span></div></div>
-      <h3 data-es="Paquete Palace" data-en="Palace Package">Paquete Palace</h3>
-      <p data-es="Todo incluido: baño, corte, uñas, oídos y dental." data-en="All-inclusive: bath, cut, nails, ears and dental.">Todo incluido: baño, corte, uñas, oídos y dental.</p>
-      <div class="service-price-row"><span class="service-price">&#128054; Desde $650 MXN</span><span class="service-price">&#128049; Desde $690 MXN</span></div>
-    </div>
+
   </div>
-  <div class="price-note reveal">
-    <span style="font-size:1.2rem;flex-shrink:0">&#8505;&#65039;</span>
+
+  <!-- IMPORTANT NOTE -->
+  <div class="price-note reveal" style="background:#0F2A4A;border:1px solid rgba(201,162,76,0.4);border-radius:18px;padding:1.75rem 2rem;margin-top:2.5rem;color:#fff">
+    <span style="font-size:1.5rem;flex-shrink:0;margin-top:2px">&#128062;</span>
     <div>
-      <strong data-es="Precios referenciales." data-en="Reference prices.">Precios referenciales.</strong>
-      <span data-es=" El costo final varia segun el tamaño y tipo de pelaje de tu mascota. Mascotas medianas, grandes o con pelaje especial pueden tener un costo diferente. Contactanos para un presupuesto exacto." data-en=" Final cost varies by pet size and coat type. Medium, large or special-coat pets may have a different cost. Contact us for an exact quote."> El costo final varia segun el tamaño y tipo de pelaje de tu mascota. Mascotas medianas, grandes o con pelaje especial pueden tener un costo diferente. Contactanos para un presupuesto exacto.</span>
+      <p style="font-weight:700;font-size:1rem;color:#E3C57E;margin-bottom:0.9rem"
+        data-es="Nota importante sobre nuestros precios"
+        data-en="Important note about our pricing">
+        Nota importante sobre nuestros precios
+      </p>
+      <p style="font-size:0.88rem;line-height:1.75;color:rgba(255,255,255,0.85);margin-bottom:1rem"
+        data-es="El servicio de baño y corte varía porque no todas las mascotas son iguales 😊"
+        data-en="Bath and grooming service varies because no two pets are the same 😊">
+        El servicio de baño y corte varía porque no todas las mascotas son iguales &#128522;
+      </p>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.1rem">
+        <div style="display:flex;gap:10px;font-size:0.84rem;color:rgba(255,255,255,0.8)">
+          <span style="color:#E3C57E;font-weight:700;flex-shrink:0">&#128207; Tamaño:</span>
+          <span data-es="Más cuerpo = más productos, más tiempo de secado" data-en="More body = more products, longer drying time">Más cuerpo = más productos, más tiempo de secado</span>
+        </div>
+        <div style="display:flex;gap:10px;font-size:0.84rem;color:rgba(255,255,255,0.8)">
+          <span style="color:#E3C57E;font-weight:700;flex-shrink:0">&#128049; Raza/Manto:</span>
+          <span data-es="Pelo lacio no es lo mismo que pelo rizado con nudos. Cada uno lleva técnica diferente." data-en="Straight hair is not the same as curly hair with knots. Each requires a different technique.">Pelo lacio no es lo mismo que pelo rizado con nudos. Cada uno lleva técnica diferente.</span>
+        </div>
+        <div style="display:flex;gap:10px;font-size:0.84rem;color:rgba(255,255,255,0.8)">
+          <span style="color:#E3C57E;font-weight:700;flex-shrink:0">&#10024; Condición:</span>
+          <span data-es="Si trae nudos, requiere más tiempo y cuidado." data-en="If it has knots, it requires more time and care.">Si trae nudos, requiere más tiempo y cuidado.</span>
+        </div>
+      </div>
+      <div style="background:rgba(201,162,76,0.12);border-left:4px solid #C9A24C;border-radius:0 10px 10px 0;padding:0.9rem 1.1rem;font-size:0.86rem;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem">
+        <strong style="color:#E3C57E"
+          data-es="Por eso damos costo exacto hasta ver a la mascota"
+          data-en="That is why we give the exact cost only after seeing the pet">
+          Por eso damos costo exacto hasta ver a la mascota
+        </strong>
+        <span data-es=" o nos manden una fotografía reciente."
+              data-en=" or after you send us a recent photo.">
+          &nbsp;o nos manden una fotografía reciente.
+        </span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#fca5a5;font-size:0.78rem;font-weight:600;padding:5px 13px;border-radius:20px"
+          data-es="&#10060; No aceptamos fotografías hechas con IA"
+          data-en="&#10060; We do not accept AI-generated photos">
+          &#10060; No aceptamos fotografías hechas con IA
+        </span>
+        <span style="background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);color:#86efac;font-size:0.78rem;font-weight:600;padding:5px 13px;border-radius:20px"
+          data-es="&#10003; La valoración es sin compromiso y gratuita"
+          data-en="&#10003; The assessment is free and no commitment required">
+          &#10003; La valoración es sin compromiso y gratuita
+        </span>
+      </div>
     </div>
   </div>
+
 </section>
 
 <!-- GALLERY -->
